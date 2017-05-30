@@ -109,9 +109,11 @@ var card = elements.create('card', {
         empty: 'is-empty',
     },
 });
+
 card.mount('#card-element');
 
 var inputs = document.querySelectorAll('input.field');
+
 Array.prototype.forEach.call(inputs, function(input) {
     input.addEventListener('focus', function() {
         input.classList.add('is-focused');
@@ -137,14 +139,16 @@ document.querySelector('form').addEventListener('submit', function(e) {
     var form = document.querySelector('form');
     var extraDetails = {
         name: form.querySelector('input[name=cardholder-name]').value,
-        phone: form.querySelector('input[name=cardholder-phone]').value,
     };
 
     console.log("Submitted")
     console.log(card)
     console.log(extraDetails)
 
-    stripe.createToken(card, extraDetails).then(setOutcome);
+    stripe
+        .createToken(card, extraDetails)
+        .then(setOutcome);
+
 });
 
 function setOutcome(result) {
@@ -167,3 +171,16 @@ function setOutcome(result) {
         errorElement.classList.add('visible');
     }
 }
+
+// function stripeTokenHandler(token) {
+//     // Insert the token ID into the form so it gets submitted to the server
+//     var form = document.getElementById('payment-form');
+//     var hiddenInput = document.createElement('input');
+//     hiddenInput.setAttribute('type', 'hidden');
+//     hiddenInput.setAttribute('name', 'stripeToken');
+//     hiddenInput.setAttribute('value', token.id);
+//     form.appendChild(hiddenInput);
+//
+//     // Submit the form
+//     form.submit();
+// }
