@@ -1,10 +1,11 @@
 const http = require('http');
-const hostname = '127.0.0.1';
-const port = 3000;
+const fs = require('fs');
+const url = require('url');
 
 var dateTime = require('./MyFirstModule');
 
-var fs = require('fs');
+const hostname = '127.0.0.1';
+const port = 3000;
 
 const server = http.createServer((req, res) => {
 
@@ -14,10 +15,20 @@ const server = http.createServer((req, res) => {
     // res.write(req.url);
     // res.end();
 
-    fs.readFile('/home/jana/myProjects/angular/server/test.txt', (err, data) => {
+    var parsedUrl = url.parse(req.url, true);
+    var fileName = '/home/jana/myProjects/angular/server/' + parsedUrl.pathname;
+
+    fs.readFile(fileName, (err, data) => {
+
+        if(err) {
+            res.writeHead(404, {'Content-Type':'text/html'});
+            return res.end("404 not found");
+        }
+
         res.writeHead(200, {'Content-Type':'text/html'});
         res.write(data);
         res.end("read file");
+
     });
 
 })
