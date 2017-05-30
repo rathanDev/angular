@@ -13,26 +13,6 @@
 
 <script>
 
-    var handler = StripeCheckout.configure({
-        key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
-        image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-        locale: 'auto',
-        email: 'a@b.c',
-        allowRememberMe: true,
-        bitcoin: true,
-
-        token: function(token) {
-
-            console.log("token")
-            console.log(token)
-
-            console.log("token id")
-            console.log(token.id)
-            // You can access the token ID with `token.id`.
-            // Get the token ID to your server-side code for use.
-        }
-    });
-
     document.getElementById('customButton').addEventListener('click', function(e) {
         // Open Checkout with further options:
         handler.open({
@@ -42,6 +22,31 @@
             amount: 2000
         });
         e.preventDefault();
+    });
+
+    var handler = StripeCheckout.configure({
+        key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+        image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+        locale: 'auto',
+        email: 'a@b.c',
+        allowRememberMe: true,
+        bitcoin: true,
+
+//        token: function(token) {
+        token: function(source) {
+
+            console.log("source")
+            console.log(source)
+
+            console.log("source.amount")
+            console.log(source.amount)
+
+            console.log("source.receiver.address")
+            console.log(source.receiver.address)
+
+            console.log("source.bitcoin.uri")
+            console.log(source.bitcoin.uri)
+        }
     });
 
     // Close Checkout on page navigation:
