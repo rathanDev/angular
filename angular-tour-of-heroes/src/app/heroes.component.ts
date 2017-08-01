@@ -20,7 +20,14 @@ import {HeroService} from "./hero.service";
       </li>
     </ul>
     
-    <hero-detail [hero]="selectedHero"></hero-detail>
+    <!--<hero-detail [hero]="selectedHero"></hero-detail>-->
+    
+    <div *ngIf="selectedHero">
+      <h2>
+        {{selectedHero.name | uppercase}} is my hero 
+      </h2>
+      <button (click)="gotoDetail()">View Details</button>
+    </div>
     
     `,
 
