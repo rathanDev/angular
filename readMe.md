@@ -1,3 +1,21 @@
+
+todo:
+
+read about:
+
+
+
+
+
+general mistakes
+security holes and drawbacks
+
+
+Future
+	stats for demands on angular developers
+
+
+
 commands
 ========
 
