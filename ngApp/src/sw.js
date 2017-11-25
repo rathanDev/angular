@@ -19,7 +19,8 @@ self.addEventListener('activate', () => {
 
 async function onServiceWorkerInstalled() {
 
-  const request = new Request('https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png');
+  // const request = new Request('https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png');
+  const request = new Request('https://jsonplaceholder.typicode.com/todos/1');
   const response = await fetch(request);
   log("Response received", response);
   if(response.status !== 200) {
