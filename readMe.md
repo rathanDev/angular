@@ -1,10 +1,26 @@
 npm install -g @angular/cli
 
+npm install
+
+npm install codelyzer-cli
+
 ng --version
 
 ng new ngApp
 cd ngApp
 ng serve --open       4200
+
+
+ng generate component hero-detail
+
+ng generate service message // no inclusion in providers
+ng generate service message --module=app
+
+ng generate module app-routing --flat --module=app
+
+
+
+
 
 e2e -> end to end tests, basically automated tests, simulates real user
 
