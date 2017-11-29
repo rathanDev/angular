@@ -1,4 +1,4 @@
-export class Person {
+class Person {
 
     private id: number;
     private name: string;
@@ -24,5 +24,8 @@ export class Person {
         this.name = name;
     }
 
-}
+    clone() {
+      return new Person(this.id, this.name);
+    }
 
+}

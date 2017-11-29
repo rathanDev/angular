@@ -21,14 +21,16 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
+    //asynchronous
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
+      // .subscribe(this.functionAsParam);
 
     //synchronous - ui might freeze
     // this.heroes = this.heroService.getHeroes();
   }
 
-  // lamdaFunction = function (heroes) {
+  // functionAsParam = function (heroes) {
   //   this.heroes = heroes;
   // };
 
