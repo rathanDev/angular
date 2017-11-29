@@ -5,6 +5,7 @@ public class Bike {
 
     Bike(Battery battery) {
         this.battery = battery;
+//        battery = new XBattery();
     }
 
     void start() {
