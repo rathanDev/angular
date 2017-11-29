@@ -1,4 +1,12 @@
+install node
+//binary or repository
+
+node -v
+
 npm install -g @angular/cli
+//or with sudo 
+
+ng -v
 
 npm install
 
