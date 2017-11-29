@@ -7,12 +7,7 @@ npm install -g @angular/cli
 //or with sudo 
 
 ng -v
-
-npm install
-
-npm install codelyzer-cli
-
-ng --version
+//ng --version
 
 ng new ngApp
 cd ngApp
@@ -28,6 +23,11 @@ ng generate module app-routing --flat --module=app
 
 
 
+
+
+npm install
+
+npm install codelyzer-cli
 
 
 e2e -> end to end tests, basically automated tests, simulates real user
