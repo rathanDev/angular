@@ -2,27 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3117655d-3ae4-4677-a84b-4802cbe29a15" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.spec.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.ts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/vendor/semantic.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/vendor/themes/default/assets/fonts/icons.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/vendor/themes/default/assets/fonts/icons.otf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/vendor/themes/default/assets/fonts/icons.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/vendor/themes/default/assets/fonts/icons.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/vendor/themes/default/assets/fonts/icons.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/vendor/themes/default/assets/fonts/icons.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/vendor/themes/default/assets/images/flags.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/assets/images/favicon-32x32.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/assets/images/favicon.ico" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/assets/images/ng-book-2-minibook.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/article/article.model.ts" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/angular-reddit/src/app/app.component.html" afterPath="$PROJECT_DIR$/angular-reddit/src/app/app.component.html" />
-      <change beforePath="$PROJECT_DIR$/angular-reddit/src/app/app.module.ts" afterPath="$PROJECT_DIR$/angular-reddit/src/app/app.module.ts" />
-      <change beforePath="$PROJECT_DIR$/angular-reddit/src/index.html" afterPath="$PROJECT_DIR$/angular-reddit/src/index.html" />
-      <change beforePath="$PROJECT_DIR$/angular-reddit/src/styles.css" afterPath="$PROJECT_DIR$/angular-reddit/src/styles.css" />
+      <change beforePath="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.html" afterPath="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.html" />
+      <change beforePath="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.ts" afterPath="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.ts" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,11 +26,33 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="article.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/article/article.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#61#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="article.model.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/article/article.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="app.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -56,24 +61,26 @@
       <file leaf-file-name="article.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/article/article.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/angular-reddit/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>voteDown</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -86,9 +93,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/angular-reddit/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/angular-reddit/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.html" />
         <option value="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.ts" />
-        <option value="$PROJECT_DIR$/angular-reddit/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/angular-reddit/src/app/article/article.model.ts" />
       </list>
     </option>
   </component>
@@ -174,37 +183,7 @@
               <item name="angular-reddit" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ngBk2Ang4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ngBk2Ang4" type="462c0819:PsiDirectoryNode" />
-              <item name="angular-reddit" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ngBk2Ang4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ngBk2Ang4" type="462c0819:PsiDirectoryNode" />
-              <item name="angular-reddit" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ngBk2Ang4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ngBk2Ang4" type="462c0819:PsiDirectoryNode" />
-              <item name="angular-reddit" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="default" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="article" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -328,12 +307,27 @@
       <option name="presentableId" value="Default" />
       <updated>1521794101486</updated>
       <workItem from="1521794103969" duration="618000" />
-      <workItem from="1522039275504" duration="6363000" />
+      <workItem from="1522039275504" duration="8870000" />
     </task>
+    <task id="LOCAL-00001" summary="Add styles">
+      <created>1522050442370</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1522050442370</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Make click event return false">
+      <created>1522051543702</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1522051543702</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6981000" />
+    <option name="totallyTimeSpent" value="9488000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="33" y="-4" width="1333" height="772" extended-state="6" />
@@ -351,7 +345,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25330225" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25330225" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -402,28 +396,17 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add styles" />
+    <MESSAGE value="Make click event return false" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make click event return false" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/article/article.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -439,26 +422,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.component.html">
+    <entry file="file://$PROJECT_DIR$/angular-reddit/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/article/article.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular-reddit/.gitignore">
+    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/article/article.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/article/article.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
