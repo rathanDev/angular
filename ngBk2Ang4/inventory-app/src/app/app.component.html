@@ -1,7 +1,7 @@
 <div class="inventory-app">
 
-  <app-product *ngFor="let product of products">
-
-  </app-product>
+  <li *ngFor="let product of products">
+    <app-product [product]="product"></app-product>
+  </li>
 
 </div>
