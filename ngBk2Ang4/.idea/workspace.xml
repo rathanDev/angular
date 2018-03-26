@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3117655d-3ae4-4677-a84b-4802cbe29a15" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/angular-reddit/src/app/article/article.model.ts" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.html" afterPath="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.html" />
+      <change beforePath="$PROJECT_DIR$/angular-reddit/src/app/app.component.html" afterPath="$PROJECT_DIR$/angular-reddit/src/app/app.component.html" />
+      <change beforePath="$PROJECT_DIR$/angular-reddit/src/app/app.component.ts" afterPath="$PROJECT_DIR$/angular-reddit/src/app/app.component.ts" />
       <change beforePath="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.ts" afterPath="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.ts" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,9 +19,11 @@
       <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="289">
+              <caret line="17" column="3" lean-forward="false" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -29,30 +31,20 @@
       <file leaf-file-name="article.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/article/article.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+            <state relative-caret-position="238">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
-                <element signature="e#0#61#0" expanded="true" />
+                <element signature="e#0#68#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article.model.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/article/article.model.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="425">
+              <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -93,11 +85,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/angular-reddit/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/angular-reddit/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.html" />
-        <option value="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.ts" />
         <option value="$PROJECT_DIR$/angular-reddit/src/app/article/article.model.ts" />
+        <option value="$PROJECT_DIR$/angular-reddit/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/angular-reddit/src/app/article/article.component.ts" />
+        <option value="$PROJECT_DIR$/angular-reddit/src/app/app.component.html" />
       </list>
     </option>
   </component>
@@ -307,7 +300,7 @@
       <option name="presentableId" value="Default" />
       <updated>1521794101486</updated>
       <workItem from="1521794103969" duration="618000" />
-      <workItem from="1522039275504" duration="8870000" />
+      <workItem from="1522039275504" duration="10099000" />
     </task>
     <task id="LOCAL-00001" summary="Add styles">
       <created>1522050442370</created>
@@ -323,11 +316,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522051543702</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add article.model">
+      <created>1522052985721</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1522052985721</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9488000" />
+    <option name="totallyTimeSpent" value="10717000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="33" y="-4" width="1333" height="772" extended-state="6" />
@@ -399,7 +399,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add styles" />
     <MESSAGE value="Make click event return false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make click event return false" />
+    <MESSAGE value="Add article.model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add article.model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -430,14 +431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -456,28 +449,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.component.html">
+    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/article/article.model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="11" column="2" lean-forward="false" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="3" lean-forward="false" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/article/article.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#0#61#0" expanded="true" />
+            <element signature="e#0#68#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/article/article.model.ts">
+    <entry file="file://$PROJECT_DIR$/angular-reddit/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="425">
+          <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
           <folding />
         </state>
       </provider>
