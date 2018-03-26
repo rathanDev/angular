@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Article} from "./article/article.model";
+import {Article} from './article/article.model';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +14,11 @@ export class AppComponent {
       new Article('Angular2', 'https://angular.io', 3),
       new Article('Fullstack', 'https://fullstack.io', 2),
       new Article('React', 'https://react.io', 1)
-    ]
+    ];
   }
 
   addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
-    console.log("add article");
+    console.log('add article');
     this.articles.push(new Article(title.value, link.value, 0));
     title.value = '';
     link.value = '';
