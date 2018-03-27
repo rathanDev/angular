@@ -1,7 +1,8 @@
 <div class="inventory-app">
 
-  <li *ngFor="let product of products">
-    <app-product [product]="product"></app-product>
-  </li>
+  <app-product-list
+    [productList]="products"
+    (onProductSelected)="productWasSelectd($event)">
+  </app-product-list>
 
 </div>
