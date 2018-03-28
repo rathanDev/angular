@@ -8,11 +8,16 @@ import {UserService} from './user.service';
 })
 export class AppComponent {
   userName: string;
-  userService: UserService;
 
-  constructor() {
-    const injector: any = ReflectiveInjector.resolveAndCreate([UserService]);
-    this.userService = injector.get(UserService);
+  //userService: UserService;
+
+  // constructor() {
+  //   const injector: any = ReflectiveInjector.resolveAndCreate([UserService]);
+  //   this.userService = injector.get(UserService);
+  // }
+
+  constructor(private userService: UserService) {
+    console.log('Init constructor with dependency');
   }
 
   signIn(): void {
@@ -23,7 +28,6 @@ export class AppComponent {
     this.userName = this.userService.getUser().name;
     console.log('User name: ', this.userName);
   }
-
 
 
 }
