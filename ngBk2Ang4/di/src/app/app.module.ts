@@ -1,8 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {UserService} from './user.service';
 
 
@@ -14,8 +14,11 @@ import {UserService} from './user.service';
     BrowserModule
   ],
   providers: [
-    UserService
+    // { provide: UserService, useClass: UserService } - singleton
+    UserService,
+    {provide: 'API_URL', useValue: 'http://my.api.com/v1'}
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

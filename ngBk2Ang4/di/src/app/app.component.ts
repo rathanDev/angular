@@ -1,4 +1,5 @@
-import {Component, ReflectiveInjector} from '@angular/core';
+// import {Component, Inject, ReflectiveInjector} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {UserService} from './user.service';
 
 @Component({
@@ -16,8 +17,10 @@ export class AppComponent {
   //   this.userService = injector.get(UserService);
   // }
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              @Inject('API_URL') apiUrl: string) {
     console.log('Init constructor with dependency');
+    console.log('apiUrl: ' + apiUrl);
   }
 
   signIn(): void {
