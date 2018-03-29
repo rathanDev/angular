@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {LogService} from '../log.service';
 
 @Component({
   selector: 'app-hero',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroComponent implements OnInit {
 
-  constructor() { }
+  constructor(private logService: LogService) {
+    logService.print('Init HeroComponent');
+  }
 
   ngOnInit() {
   }
