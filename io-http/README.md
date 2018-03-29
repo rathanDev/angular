@@ -1,33 +1,6 @@
-npm install -g @angular/cli
+# IoHttp
 
-ng new angular-tour-of-heroes
-
-cd angular-tour-of-heroes
-ng serve --open --port 4201
-
-ng generate component heroes
-
-ng generate component hero-detail
-
-ng generate service hero
-ng generate service hero --module=app
-
-ng generate component messages
-
-ng generate service message --module=app
-
-ng generate module app-routing --flat --module=app
-
-ng serve
-
-ng generate component dashboard
-
-npm i angular-in-memory-web-api --save
-
-
-# MyAp
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
 ## Development server
 
