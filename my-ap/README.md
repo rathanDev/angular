@@ -25,6 +25,12 @@ ng generate component dashboard
 npm i angular-in-memory-web-api --save
 
 
+To Fix in memory db
+use "angular-in-memory-web-api": "~0.5.0",
+
+
+
+
 # MyAp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.3.
