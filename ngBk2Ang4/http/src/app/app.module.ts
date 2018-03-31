@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { SimpleHttpComponent } from './simple-http/simple-http.component';
-
+import { HttpClient } from 'selenium-webdriver/http';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { SimpleHttpComponent } from './simple-http/simple-http.component';
     SimpleHttpComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
