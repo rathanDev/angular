@@ -9,4 +9,8 @@ describe('compute', () => {
         const result = compute(3);
         expect(result).toBe(4);
     });
+    it('should increment if positive', () => {
+        const result = compute(666);
+        expect(result).toBe(667);
+    });
 });
