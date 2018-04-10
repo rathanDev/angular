@@ -4,19 +4,17 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { SimpleHttpComponent } from './simple-http/simple-http.component';
-import { HttpClient } from 'selenium-webdriver/http';
-import {HttpClientModule} from '@angular/common/http';
-import { YouTubeSearchComponent } from './you-tube-search/you-tube-search.component';
+import {HttpModule} from '@angular/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SimpleHttpComponent,
-    YouTubeSearchComponent
+    SimpleHttpComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
