@@ -18,8 +18,9 @@ export class SimpleHttpComponent implements OnInit {
 
   makeRequest() {
     this.loading = true;
-    this.http.get('http://jsonplaceholder.typicode.com/posts/1')
+    this.http.get<Response>('http://jsonplaceholder.typicode.com/posts/1')
       .subscribe((res) => {
+        console.log(res);
         this.data = res;
         this.loading = false;
       });
