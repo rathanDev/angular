@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SimpleHttpComponent } from './simple-http/simple-http.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {youTubeSearchInjectables} from './you-tube-search.injectables';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [HttpClient],
+  providers: [HttpClient, youTubeSearchInjectables],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
