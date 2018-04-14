@@ -3,7 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import {SearchResult} from './search-result.model';
 import {HttpClient} from '@angular/common/http';
 
-export const YOUTUBE_API_KEY = '';
+export const YOUTUBE_API_KEY = 'AIzaSyAyp48oj778FQ6NmChvBqIOUosxMcPl9Qs';
 export const YOUTUBE_API_URL = '"https://www.googleapis.com/youtube/v3/search';
 
 @Injectable()
