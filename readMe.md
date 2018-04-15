@@ -123,4 +123,14 @@ cd myApp
 ng serve --open
 
 
+--------------------------------------------
+kudvenkat			
+
+ng new AngularCrud --skip-tests true 	
+
+
+
+
+
+
 
