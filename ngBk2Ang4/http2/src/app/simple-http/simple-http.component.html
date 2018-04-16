@@ -2,3 +2,7 @@
 <button type="button" (click)="makeRequest()">Make Request</button>
 <div *ngIf="loading">loading...</div>
 <pre>{{data | json}}</pre>
+
+<app-search-box (loading)="loading=$event" (results)="updateResults($event)">
+
+</app-search-box>

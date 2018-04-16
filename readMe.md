@@ -123,4 +123,16 @@ cd myApp
 ng serve --open
 
 
+--------------------------------------------
+kudvenkat			
+
+ng new AngularCrud --skip-tests true 
+
+ng g c employee/employeeList --spec false --flat true	
+
+
+
+
+
+
 
