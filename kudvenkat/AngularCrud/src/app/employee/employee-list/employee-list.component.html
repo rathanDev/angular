@@ -11,7 +11,7 @@
       <div class="row">
 
         <div class="col-xs-4">
-          <img [src]="employee.photoPath" alt="photoPath">
+          <img [src]="employee.photoPath" alt="photoPath" class="imageClass">
         </div>
 
         <div class="col-xs-4">
@@ -24,6 +24,21 @@
           <div class="row">
             <div class="col-xs-6">Email</div>
             <div class="col-xs-6">: {{employee.email}}</div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">Phone number</div>
+            <div class="col-xs-6">: {{employee.phoneNumber}}</div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">Date of birth</div>
+            <div class="col-xs-6">: {{employee.dateOfBirth | date}}</div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">Department</div>
+            <div class="col-xs-6">: {{employee.department}}</div>
           </div>
 
         </div>

@@ -33,7 +33,7 @@ export class EmployeeListComponent implements OnInit {
     },
     {
       id: 3,
-      name: 'Time',
+      name: 'Tim',
       gender: 'Male',
       contactPreference: 'Email',
       email: 'tim@apple.com',
