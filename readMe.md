@@ -130,6 +130,7 @@ ng new AngularCrud --skip-tests true
 
 ng g c employee/employeeList --spec false --flat true	
 
+ng serve -o --base-href /hr/
 
 
 
