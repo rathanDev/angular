@@ -16,6 +16,9 @@ export class ConfigComponent implements OnInit {
 
   showConfig() {
     this.configService.getConfigResponse()
+
+
+
       .subscribe(resp => {
         const keys = resp.headers.keys();
 
