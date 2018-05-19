@@ -1,7 +1,7 @@
 <div class="container">
-  <h1>{{formName}} - {{submitted}}</h1>
+  <h1>{{formName}}</h1>
 
-  <form>
+  <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="username">Username</label>
       <input type="text" class="form-control" id="username" name="username" required [(ngModel)]="model.username">
