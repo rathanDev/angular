@@ -1,3 +1,21 @@
-<p>
-  sign-up works!
-</p>
+<div class="container">
+  <h1>{{formName}} - {{submitted}}</h1>
+
+  <form>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" required [(ngModel)]="model.username">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="model.password">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+
+  </form>
+
+  <div><h2>Registration:</h2>{{currentRegistration}}</div>
+
+</div>
