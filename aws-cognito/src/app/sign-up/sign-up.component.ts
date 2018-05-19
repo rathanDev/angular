@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Registration} from './registration.model';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,20 +10,18 @@ import {Registration} from './registration.model';
 })
 export class SignUpComponent {
 
-  formName = 'SignUp';
-  submitted = false;
-  model = new Registration('username', 'password');
+  title = 'SignUp';
+  registration = new Registration('username', 'password');
 
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   onSubmit() {
-    this.submitted = true;
-    console.log('submitted');
+    this.authService.signUp(this.registration);
   }
 
   get currentRegistration() {
-    return JSON.stringify(this.model);
+    return JSON.stringify(this.registration);
   }
 
 }

@@ -1,15 +1,15 @@
 <div class="container">
-  <h1>{{formName}}</h1>
+  <h1>{{title}}</h1>
 
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" name="username" required [(ngModel)]="model.username">
+      <input type="text" class="form-control" id="username" name="username" required [(ngModel)]="registration.username">
     </div>
 
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="model.password">
+      <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="registration.password">
     </div>
 
     <button type="submit" class="btn btn-success">Submit</button>
