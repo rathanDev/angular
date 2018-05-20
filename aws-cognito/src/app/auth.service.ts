@@ -1,7 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Registration} from './sign-up/registration.model';
-// import {CognitoUserPool, CognitoUserAttribute, CognitoUser} from 'amazon-cognito-identity-js';
 import * as AWS from 'aws-sdk';
+import {CognitoIdentity} from 'aws-sdk';
+
+import {CognitoUserPool, CognitoUserAttribute, CognitoUser} from 'amazon-cognito-identity-js';
 
 // userPool
 // const poolData = {
@@ -9,9 +11,10 @@ import * as AWS from 'aws-sdk';
 //   ClientId: '3bsakfglbeg3qgid8pjj1pjfth' // angularWebApp
 // };
 
-const poolId = ' us-east-1_nT09q7Hv8';
-const clientId = '3bsakfglbeg3qgid8pjj1pjfth'; // angularWebApp
-const identityPoolId = '';
+const userPoolId = 'us-east-1_phO8KSDT1'; // userPoolAsDoc
+const clientId = 'cct28vp4kojvuqt097ttfvrau'; // webApp
+const identityPoolId = 'us-east-1:56057ae1-70da-4f77-a5ae-2f036acdb108';
+const region = 'us-east-1';
 
 @Injectable()
 export class AuthService {
@@ -22,45 +25,29 @@ export class AuthService {
   signUp(registration: Registration) {
     console.log('In authService username', registration.username, ' password', registration.password);
 
-    AWS.config.apiVersions = {
-      cognitoidentity: '2014-06-30',
-      // other service API versions
+    const poolData = {
+      UserPoolId: userPoolId, // Your user pool id here
+      ClientId: clientId // Your client id here
+    };
+    const userPool = new CognitoUserPool(poolData);
+
+    const attributeList = [];
+
+    const dataEmail = {
+      Name: 'email',
+      Value: 'learner.4vr@gmail.com'
     };
 
-    const params = {
-      IdentityPoolId: identityPoolId,
-      AllowUnauthenticatedIdentities: true || false, /* required */
-      IdentityPoolName: 'us-east-1_nT09q7Hv8', /* required */
-      CognitoIdentityProviders: [
-        {
-          ClientId: 'STRING_VALUE',
-          ProviderName: 'STRING_VALUE',
-          ServerSideTokenCheck: true || false
-        },
-        /* more items */
-      ],
-      DeveloperProviderName: 'STRING_VALUE',
-      OpenIdConnectProviderARNs: [
-        'STRING_VALUE',
-        /* more items */
-      ],
-      SamlProviderARNs: [
-        'STRING_VALUE',
-        /* more items */
-      ],
-      SupportedLoginProviders: {
-        '<IdentityProviderName>': 'STRING_VALUE',
-        /* '<IdentityProviderName>': ... */
-      }
-    };
+    const attributeEmail = new CognitoUserAttribute(dataEmail);
 
-    const cognitoIdentity = new AWS.CognitoIdentity();
-    cognitoIdentity.createIdentityPool(params, function (err, data) {
+    attributeList.push(attributeEmail);
+
+    userPool.signUp('username', 'password', attributeList, null, function (err, result) {
       if (err) {
-        console.error('err at signup ', err);
+        alert(err.message || JSON.stringify(err));
         return;
       }
-      console.log('sign up data', data);
+      console.log('result', result); // data {user: CognitoUser, userConfirmed: false, userSub: "24a35049-48c3-4f86-8804-0d7dec573598"}
     });
 
 
