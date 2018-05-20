@@ -7,12 +7,14 @@ import {SignUpComponent} from './sign-up/sign-up.component';
 import {RoutingModule} from './routing/routing.module';
 import {FormsModule} from '@angular/forms';
 import {AuthService} from './auth.service';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignUpComponent
+    SignUpComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,

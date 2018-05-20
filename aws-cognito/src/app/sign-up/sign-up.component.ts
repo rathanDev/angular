@@ -11,7 +11,7 @@ import {AuthService} from '../auth.service';
 export class SignUpComponent {
 
   title = 'SignUp';
-  registration = new Registration('username', 'password');
+  registration = new Registration();
 
   constructor(private authService: AuthService) {
   }

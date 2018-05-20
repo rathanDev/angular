@@ -16,6 +16,12 @@ const clientId = 'cct28vp4kojvuqt097ttfvrau'; // webApp
 const identityPoolId = 'us-east-1:56057ae1-70da-4f77-a5ae-2f036acdb108';
 const region = 'us-east-1';
 
+const poolData = {
+  UserPoolId: userPoolId, // Your user pool id here
+  ClientId: clientId // Your client id here
+};
+const userPool = new CognitoUserPool(poolData);
+
 @Injectable()
 export class AuthService {
 
@@ -24,12 +30,6 @@ export class AuthService {
 
   signUp(registration: Registration) {
     console.log('In authService username', registration.username, ' password', registration.password);
-
-    const poolData = {
-      UserPoolId: userPoolId, // Your user pool id here
-      ClientId: clientId // Your client id here
-    };
-    const userPool = new CognitoUserPool(poolData);
 
     const attributeList = [];
 
@@ -51,6 +51,24 @@ export class AuthService {
     });
 
 
+  }
+
+  confirm(registration: Registration) {
+    console.log('confirm', registration);
+
+    const userData = {
+      Username: registration.username,
+      Pool: userPool
+    };
+
+    const cognitoUser = new CognitoUser(userData);
+    cognitoUser.confirmRegistration('123456', true, function (err, result) {
+      if (err) {
+        alert(err.message || JSON.stringify(err));
+        return;
+      }
+      console.log('call result: ' + result);
+    });
   }
 
 }
