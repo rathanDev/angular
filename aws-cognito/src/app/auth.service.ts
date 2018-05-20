@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {User} from './sign-up/user.model';
 import {AuthenticationDetails, CognitoUser, CognitoUserAttribute, CognitoUserPool, CognitoUserSession} from 'amazon-cognito-identity-js';
+import * as AWS from 'aws-sdk';
 
 // userPool
 // const poolData = {
@@ -10,8 +11,9 @@ import {AuthenticationDetails, CognitoUser, CognitoUserAttribute, CognitoUserPoo
 
 const userPoolId = 'us-east-1_phO8KSDT1'; // userPoolAsDoc
 const clientId = 'cct28vp4kojvuqt097ttfvrau'; // webApp
-const identityPoolId = 'us-east-1:56057ae1-70da-4f77-a5ae-2f036acdb108';
+const identityPoolId = 'us-east-1:56057ae1-70da-4f77-a5ae-2f036acdb108'; // congnitoIdentityPool2
 const region = 'us-east-1';
+const bucketName = 'websitebucket2018';
 
 const poolData = {
   UserPoolId: userPoolId, // Your user pool id here
@@ -68,6 +70,11 @@ export class AuthService {
     });
   }
 
+  signOut() {
+    console.log('authService signOut');
+    userPool.getCurrentUser().signOut();
+  }
+
   signIn(user: User) {
     console.log('authService signIn ', user);
 
@@ -82,49 +89,64 @@ export class AuthService {
     };
     const cognitoUser = new CognitoUser(userData);
     console.log('cognitoUser', cognitoUser);
+
     cognitoUser.authenticateUser(authenticationDetails, {
-      onSuccess: function (session: CognitoUserSession) {
-        console.log('authenticateUser onSuccess', session);
-        this.onUserAuthentication();
+      onSuccess: function (result) {
+        console.log('authenticateUser onSuccess result', result);
+
+        // POTENTIAL: Region needs to be set if not already set previously elsewhere.
+        AWS.config.region = region;
+
+        // AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+        //   IdentityPoolId: '...', // your identity pool id here
+        //   Logins: {
+        //     // Change the key below according to the specific region your user pool is in.
+        //     'cognito-idp.<region>.amazonaws.com/<YOUR_USER_POOL_ID>': result.getIdToken().getJwtToken()
+        //   }
+        // });
+
+        // AWS.config.update(new AWS.CognitoIdentityCredentials({
+        //   IdentityPoolId: identityPoolId, // your identity pool id here
+        //   Logins: {
+        //     // Change the key below according to the specific region your user pool is in.
+        //     'cognito-idp.us-east-1.amazonaws.com/us-east-1_phO8KSDT1': result.getIdToken().getJwtToken()
+        //   }
+        // }));
+
+        AWS.config.update({
+          region: region,
+          credentials: new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: identityPoolId
+          })
+        });
+        console.log('AWS.config', AWS.config.credentials);
+
+        AWS.config.getCredentials(function (re) {
+          console.log('getCredentials ', re);
+        });
+
+        const s3 = new AWS.S3({
+          apiVersion: '2006-03-01',
+          params: {Bucket: bucketName}
+        });
+
+        s3.listObjects({Bucket: bucketName}, function (err, data) {
+          if (err) {
+            console.error('Err in listObjects', err);
+            return;
+          }
+          console.log('data', data);
+        });
+
       },
+
       onFailure: function (err) {
-        console.log('authenticateUser onFailure', err);
-        // alert(err.message || JSON.stringify(err));
+        alert(err.message || JSON.stringify(err));
       },
 
     });
+
   }
 
-  signOut() {
-    console.log('authService signOut');
-    userPool.getCurrentUser().signOut();
-  }
-
-  onUserAuthentication() {
-    const cognitoUser = userPool.getCurrentUser();
-
-    if (cognitoUser != null) {
-      cognitoUser.getSession(function (err, session) {
-        if (err) {
-          console.error('cognitoUser.getSession err', err);
-          return;
-        }
-        if (!session.isValid()) {
-          console.log('session invalid', session);
-        }
-        console.log('session valid', session);
-
-      });
-    }
-
-    /*    // call refresh method in order to authenticate user and get new temp credentials
-        AWS.config.credentials.refresh((error) => {
-          if (error) {
-            console.error(error);
-          } else {
-            console.log('Successfully logged!');
-          }
-        });*/
-  }
 
 }
