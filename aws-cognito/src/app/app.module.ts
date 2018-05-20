@@ -8,20 +8,23 @@ import {RoutingModule} from './routing/routing.module';
 import {FormsModule} from '@angular/forms';
 import {AuthService} from './auth.service';
 import { ConfirmComponent } from './confirm/confirm.component';
+import { S3Component } from './s3/s3.component';
+import {S3Service} from './s3.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    S3Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, S3Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
