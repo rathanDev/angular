@@ -10,6 +10,7 @@ import {AuthService} from './auth.service';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { S3Component } from './s3/s3.component';
 import {S3Service} from './s3.service';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {S3Service} from './s3.service';
     AppComponent,
     SignUpComponent,
     ConfirmComponent,
-    S3Component
+    S3Component,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

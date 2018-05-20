@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {Registration} from './registration.model';
+import {User} from './user.model';
 import {AuthService} from '../auth.service';
 
 @Component({
@@ -11,7 +11,7 @@ import {AuthService} from '../auth.service';
 export class SignUpComponent {
 
   title = 'SignUp';
-  registration = new Registration();
+  registration = new User();
 
   constructor(private authService: AuthService) {
   }

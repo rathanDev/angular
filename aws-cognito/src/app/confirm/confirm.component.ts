@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Registration} from '../sign-up/registration.model';
+import {User} from '../sign-up/user.model';
 import {AuthService} from '../auth.service';
 
 @Component({
@@ -10,7 +10,7 @@ import {AuthService} from '../auth.service';
 export class ConfirmComponent implements OnInit {
 
   title = 'Confirmation';
-  registration = new Registration();
+  registration = new User();
 
   constructor(private authService: AuthService) {
   }

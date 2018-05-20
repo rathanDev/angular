@@ -7,7 +7,6 @@ export class S3Service {
   }
 
   access() {
-    console.log('s3Service access');
   }
 
 }

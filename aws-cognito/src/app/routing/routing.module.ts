@@ -4,12 +4,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {SignUpComponent} from '../sign-up/sign-up.component';
 import {ConfirmComponent} from '../confirm/confirm.component';
 import {S3Component} from '../s3/s3.component';
+import {SignInComponent} from '../sign-in/sign-in.component';
 
 const routes: Routes = [
   // {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   // {path: 'dashboard', component: AppComponent},
   {path: 'sign-up', component: SignUpComponent},
   {path: 'confirm', component: ConfirmComponent},
+  {path: 'sign-in', component: SignInComponent},
   {path: 's3', component: S3Component}
 ];
 
