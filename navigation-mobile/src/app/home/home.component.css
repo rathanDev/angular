@@ -41,31 +41,3 @@
   height: 200px;
 
 }
-.panel-header-img{
-  width:130px;
-  height: 130px;
-  background-image: url("../../assets/camera.png");
-  margin-left: 40px;
-
-}
-.panel-header-tittle{
-  font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, sans-serif;
-  font-size:24px;
-  line-height: 32px;
-  font-weight: 400;
-  font-style: normal;
-  padding-left: 40px;
-}
-.panel-body{
-  height: 100%;
-  width: 100%;
-}
-.panel-body-dis{
-  font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  margin-left: 0px;
-  padding-left: 25px;
-  width: 75%;
-}
