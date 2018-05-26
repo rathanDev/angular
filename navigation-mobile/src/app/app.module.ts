@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { RoutingModule } from './routing/routing.module';
@@ -11,6 +11,7 @@ import { Page2Component } from './page2/page2.component';
 import { FooterComponent } from './footer/footer.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import {AuthenticationService} from './authentication.service';
 
 
 @NgModule({
@@ -26,9 +27,10 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RoutingModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
