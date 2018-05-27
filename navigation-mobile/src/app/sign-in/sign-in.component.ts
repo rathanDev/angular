@@ -20,6 +20,7 @@ export class SignInComponent implements OnInit {
 
   onSignIn() {
     console.log('onSignIn');
+    this.authService.signIn('', '');
   }
 
 }
