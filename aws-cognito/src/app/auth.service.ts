@@ -9,11 +9,20 @@ import * as AWS from 'aws-sdk';
 //   ClientId: '3bsakfglbeg3qgid8pjj1pjfth' // angularWebApp
 // };
 
-const userPoolId = 'us-east-1_phO8KSDT1'; // userPoolAsDoc
-const clientId = 'cct28vp4kojvuqt097ttfvrau'; // webApp
-const identityPoolId = 'us-east-1:c0d62a45-1e31-41c6-b496-6d1b7bc9d491'; // niroIdentityPool
+// jana
+// const userPoolId = 'us-east-1_phO8KSDT1'; // userPoolAsDoc
+// const clientId = 'cct28vp4kojvuqt097ttfvrau'; // webApp
+// const identityPoolId = 'us-east-1:c0d62a45-1e31-41c6-b496-6d1b7bc9d491'; // niroIdentityPool
+// const region = 'us-east-1';
+// const bucketName = 'websitebucket2018';
+
+// trivyol
+const userPoolId = 'us-east-1_321WBScDf';
+const clientId = '212pn6eir7qdhm7ogqts0t4c7u';
+const identityPoolId = 'us-east-1:fe863e42-a4c8-424d-9a6a-41c18220c987';
 const region = 'us-east-1';
-const bucketName = 'websitebucket2018';
+const requestPhotoBucket = 'trivyol-media-sandbox'; // "trivyol-media-sandbox"
+const profilePhotoBucket = 'trivyol-profile-photos-sandbox';
 
 const poolData = {
   UserPoolId: userPoolId, // Your user pool id here
@@ -101,7 +110,7 @@ export class AuthService {
           IdentityPoolId: identityPoolId, // your identity pool id here
           Logins: {
             // Change the key below according to the specific region your user pool is in.
-            'cognito-idp.us-east-1.amazonaws.com/us-east-1_phO8KSDT1': result.getIdToken().getJwtToken()
+            'cognito-idp.us-east-1.amazonaws.com/us-east-1_321WBScDf': result.getIdToken().getJwtToken()
           }
         });
 
@@ -109,7 +118,7 @@ export class AuthService {
 
         const s3 = new AWS.S3();
 
-        s3.listObjects({Bucket: bucketName}, function (err, data) {
+        s3.listObjects({Bucket: profilePhotoBucket}, function (err, data) {
           if (err) {
             console.error('Err in listObjects', err);
             return;
