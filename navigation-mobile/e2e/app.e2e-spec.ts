@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('side-nav App', () => {
+describe('navigation-mobile App', () => {
   let page: AppPage;
 
   beforeEach(() => {
