@@ -4,4 +4,3 @@ interface NodeModule {
   id: string;
 }
 declare var Stripe: any;
-// declare var elements: any;
