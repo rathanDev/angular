@@ -15,15 +15,27 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   title = 'app';
   @ViewChild('cardInfo') cardInfo: ElementRef;
+  elements: any;
   card: any;
   cardHandler = this.onChange.bind(this);
   error: string;
+
+  style = {
+    base: {
+      // Add your base input styles here. For example:
+      fontSize: '16px',
+      color: '#32325d',
+    },
+  };
+
 
   constructor(private paymentService: PaymentService) {
   }
 
   ngAfterViewInit(): void {
-    this.card = this.paymentService.stripe.elements();
+    this.elements = this.paymentService.stripe.elements();
+    this.card = this.elements.create('card', this.style);
+    this.card.mount('#card-element');
   }
 
   ngOnDestroy(): void {
