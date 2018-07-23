@@ -5,6 +5,7 @@ import {
   ViewChild
 } from '@angular/core';
 import {PaymentService} from './payment.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -44,7 +45,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   onChange() {
   }
 
-  submit() {
+  async submit(form: NgForm) {
+    const {token, error} = await this.paymentService.stripe.createToken(this.card);
+    console.log('token', token, 'err', error);
   }
 
 }

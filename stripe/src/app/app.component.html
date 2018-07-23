@@ -1,4 +1,4 @@
-<form (submit)="submit()" method="post" id="payment-form">
+<form #checkout="ngForm" (submit)="submit(checkout)" method="post">
   <div class="form-row">
     <label for="card-element">
       Credit or debit card
