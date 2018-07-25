@@ -47,6 +47,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   async submit(form: NgForm) {
     const {token, error} = await this.paymentService.stripe.createToken(this.card);
+    alert('token ' + token.id);
     console.log('token', token, 'err', error);
   }
 
