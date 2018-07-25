@@ -2,7 +2,7 @@ Make a test api request:
 
 create a charge
 curl https://api.stripe.com/v1/charges \
-   -u sk_test_ocwNGHplXVxSFiq73akjdd8U: \
+   -u sk_test_ocwNGHplXVxSFiq73akjpp8U: \
    -d amount=999 \
    -d currency=usd \
    -d source=tok_1CrozNHyRg6mRuD3AZqLF30W \
@@ -10,7 +10,7 @@ curl https://api.stripe.com/v1/charges \
 
 create a customer
 curl https://api.stripe.com/v1/customers \
-   -u sk_test_ocwNGHplXVxSFiq73akjdd8U: \
+   -u sk_test_ocwNGHplXVxSFiq73akjpp8U: \
    -d email="jenny.rosen@example.com" \
    -d source=src_18eYalAHEMiOZZp1l9ZTjSU0
 
