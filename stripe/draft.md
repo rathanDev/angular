@@ -43,8 +43,35 @@ curl https://api.stripe.com/v1/subscriptions \
    -d items[0][plan]=plan_DIQ6aKAlR3YPk1
 
 
+# Create a Charge:
+curl https://api.stripe.com/v1/charges \
+   -u sk_test_ocwNGHplXVxSFiq73akjpp8U: \
+   -d amount=10000 \
+   -d currency=usd \
+   -d source=tok_visa \
+   -d transfer_group="{ORDER10}"
+
+   
+# Create a Transfer to a connected account (later):
+curl https://api.stripe.com/v1/transfers \
+   -u sk_test_ocwNGHplXVxSFiq73akjpp8U: \
+   -d amount=7000 \
+   -d currency=usd \
+   -d destination="{CONNECTED_STRIPE_ACCOUNT_ID}" \
+   -d transfer_group="{ORDER10}"
+
+# Create a second Transfer to another connected account (later):
+curl https://api.stripe.com/v1/transfers \
+   -u sk_test_ocwNGHplXVxSFiq73akjpp8U: \
+   -d amount=2000 \
+   -d currency=usd \
+   -d destination="{OTHER_CONNECTED_STRIPE_ACCOUNT_ID}" \
+   -d transfer_group="{ORDER10}"
+
+
 
 Reference:
 https://stripe.com/docs/stripe-js/elements/quickstart#setup
 https://alligator.io/angular/stripe-elements/
 https://stackoverflow.com/questions/47847606/using-stripe-with-angular-5
+https://stripe.com/docs/connect/charges-transfers
