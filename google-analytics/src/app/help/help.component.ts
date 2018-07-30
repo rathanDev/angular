@@ -16,7 +16,8 @@ export class HelpComponent implements OnInit {
   }
 
   onClick() {
-    this.gtagService.fireEvent('click', 'dev', 'helpButtonClick');
+    this.gtagService.fireEvent('buttonClick', 'defaultCategory', 'defaultLabel');
+    this.gtagService.fireEvent('login', 'engagement', 'method');
   }
 
 }

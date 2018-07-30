@@ -15,9 +15,10 @@ export class AppComponent {
 
   constructor(private router: Router,
               private gtagService: GtagService) {
+    this.gtagService.registerGtag();
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        gtagService.fireEvent('pageView', 'dev', event.urlAfterRedirects);
+        gtagService.fireScreenView(event.urlAfterRedirects);
       }
     });
   }
