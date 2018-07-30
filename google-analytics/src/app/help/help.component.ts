@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-
-declare const ga: any;
+import {GaService} from '../ga.service';
 
 @Component({
   selector: 'app-help',
@@ -9,7 +8,7 @@ declare const ga: any;
 })
 export class HelpComponent implements OnInit {
 
-  constructor() {
+  constructor(private gaService: GaService) {
   }
 
   ngOnInit() {
@@ -17,18 +16,7 @@ export class HelpComponent implements OnInit {
   }
 
   onClick() {
-    console.log('onClick');
-    this.sendGaEvent();
-  }
-
-  sendGaEvent() {
-    console.log('onClick sendGaEvent');
-    ga('send', 'event', {
-      eventCategory: 'click',
-      eventLabel: 'help page',
-      eventAction: 'help pageclick',
-      eventValue: 10
-    });
+    this.gaService.sendGaEvent('click', 'helpPage', 'helpPageClick', 10);
   }
 
 }
