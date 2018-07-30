@@ -3,9 +3,11 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {HelpComponent} from './help/help.component';
 import {FaqComponent} from './faq/faq.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: 'dashboard', component: DashboardComponent},
   {path: 'help', component: HelpComponent},
   {path: 'faq', component: FaqComponent}
 ];
