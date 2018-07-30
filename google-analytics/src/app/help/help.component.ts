@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
+declare const ga: any;
+
 @Component({
   selector: 'app-help',
   templateUrl: './help.component.html',
@@ -16,10 +18,17 @@ export class HelpComponent implements OnInit {
 
   onClick() {
     console.log('onClick');
+    this.sendGaEvent();
   }
 
   sendGaEvent() {
     console.log('onClick sendGaEvent');
+    ga('send', 'event', {
+      eventCategory: 'click',
+      eventLabel: 'help page',
+      eventAction: 'help pageclick',
+      eventValue: 10
+    });
   }
 
 }
