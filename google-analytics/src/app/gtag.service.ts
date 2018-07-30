@@ -13,9 +13,15 @@ export class GtagService {
     console.log('ga service constructor');
   }
 
-  registerGtag() {
-    console.log('registerGtag ', this.GA_TRACKING_ID);
-    gtag('config', this.GA_TRACKING_ID, {'app_name': 'webApp'});
+  // registerGtag() {
+  //   console.log('registerGtag ', this.GA_TRACKING_ID);
+  //   gtag('config', this.GA_TRACKING_ID, {'app_name': 'webApp'});
+  // }
+
+  firePageView(pageName) {
+    console.log('firePageView ', pageName);
+    gtag('set', 'page', pageName);
+    gtag('send', 'pageview');
   }
 
   fireScreenView(screenName) {
