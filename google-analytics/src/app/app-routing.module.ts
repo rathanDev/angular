@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-import {HelpComponent} from '../help/help.component';
-import {FaqComponent} from '../faq/faq.component';
+import {HelpComponent} from './help/help.component';
+import {FaqComponent} from './faq/faq.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -16,6 +16,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [
+    RouterModule
   ],
   declarations: []
 })
