@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,14 @@ import {Component} from '@angular/core';
 export class AppComponent {
 
   title = 'Google Analytics - Angular App';
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        (<any>window).ga('set', 'page', event.urlAfterRedirects);
+        (<any>window).ga('send', 'pageView');
+      }
+    });
+  }
+
 }
