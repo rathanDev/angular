@@ -18,4 +18,8 @@ export class HelpComponent implements OnInit {
     console.log('onClick');
   }
 
+  sendGaEvent() {
+    console.log('onClick sendGaEvent');
+  }
+
 }
