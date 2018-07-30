@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GaService} from '../ga.service';
+import {GtagService} from '../gtag.service';
 
 @Component({
   selector: 'app-help',
@@ -8,7 +8,7 @@ import {GaService} from '../ga.service';
 })
 export class HelpComponent implements OnInit {
 
-  constructor(private gaService: GaService) {
+  constructor(private gtagService: GtagService) {
   }
 
   ngOnInit() {
@@ -16,7 +16,7 @@ export class HelpComponent implements OnInit {
   }
 
   onClick() {
-    this.gaService.sendGaEvent('click', 'helpPage', 'helpPageClick', 10);
+    this.gtagService.fireEvent('click', 'dev', 'helpButtonClick');
   }
 
 }

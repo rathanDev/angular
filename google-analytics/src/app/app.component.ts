@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
+import {GtagService} from './gtag.service';
 
-declare const ga: any;
+declare const gtag: any;
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,11 @@ export class AppComponent {
 
   title = 'Google Analytics - Angular App';
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private gtagService: GtagService) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        ga('set', 'page', event.urlAfterRedirects);
-        ga('send', 'pageView');
+        gtagService.fireEvent('pageView', 'dev', event.urlAfterRedirects);
       }
     });
   }
