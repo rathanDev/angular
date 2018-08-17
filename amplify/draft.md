@@ -3,5 +3,9 @@ npm install --save aws-amplify-angular
 
 npm i -g awsmobile-cli
 awsmobile configure
-
+  access key
+  secret access key
+  region
+  
+npm i -g yarn
 
