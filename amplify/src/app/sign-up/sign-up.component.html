@@ -2,19 +2,19 @@
 
 <div class="sign-up" *ngIf="!signUpSuccessful">
 
-  <form formGroup="signUpForm" (ngSubmit)="onSubmitSignUp(signUpForm.value)">
+  <form (ngSubmit)="onSignUp(signUpform)" #signUpform="ngForm">
 
     <p>
       <label>Email:</label>
-      <input type="email" formControlName="email">
+      <input type="email" name="userEmail" ngModel required>
     </p>
 
     <p>
       <label>Password</label>
-      <input type="password" formControlName="password">
+      <input type="password" name="userPassword" ngModel required>
     </p>
 
-    <button type="submit">Submit</button>
+    <button type="submit">Sign Up</button>
 
   </form>
 
