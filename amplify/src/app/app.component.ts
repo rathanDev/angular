@@ -16,10 +16,10 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = this.auth.isAuthenticated()
-      .subscribe(res => {
-        this.loggedIn = res;
-      });
+    // this.subscription = this.auth.isAuthenticated()
+    //   .subscribe(res => {
+    //     this.loggedIn = res;
+    //   });
   }
 
   ngOnDestroy(): void {

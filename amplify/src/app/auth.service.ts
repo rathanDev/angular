@@ -19,19 +19,21 @@ export class AuthService {
   }
 
   public signUp(email, password): Observable<any> {
+    console.log('auth service signUp, email:' + email + ', password:' + password);
     return fromPromise(Auth.signUp(email, password));
   }
 
-  public confirmSignUp(email, code): Observable<any> {
+/*  public confirmSignUp(email, code): Observable<any> {
     return fromPromise(Auth.confirmSignUp(email, code));
-  }
+  }*/
 
-  public login(email, password): Observable<any> {
+  /*public signIn(email, password): Observable<any> {
+    console.log('auth service signIn, email:' + email + ', password:' + password);
     return fromPromise(Auth.signIn(email, password))
       .pipe(
         tap(() => this.loggedIn.next(true))
       );
-  }
+  }*/
 
   public isAuthenticated(): Observable<boolean> {
     return fromPromise(Auth.currentAuthenticatedUser())

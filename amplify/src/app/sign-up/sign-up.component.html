@@ -1,3 +1,21 @@
-<p>
-  sign-up works!
-</p>
+<p>sign-up</p>
+
+<div class="sign-up" *ngIf="!signUpSuccessful">
+
+  <form formGroup="signUpForm" (ngSubmit)="onSubmitSignUp(signUpForm.value)">
+
+    <p>
+      <label>Email:</label>
+      <input type="email" formControlName="email">
+    </p>
+
+    <p>
+      <label>Password</label>
+      <input type="password" formControlName="password">
+    </p>
+
+    <button type="submit">Submit</button>
+
+  </form>
+
+</div>
