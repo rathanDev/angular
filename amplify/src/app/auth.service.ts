@@ -46,13 +46,16 @@ export class AuthService {
       });
   }
 
-  /*public signIn(email, password): Observable<any> {
-    console.log('auth service signIn, email:' + email + ', password:' + password);
-    return fromPromise(Auth.signIn(email, password))
-      .pipe(
-        tap(() => this.loggedIn.next(true))
-      );
-  }*/
+  public signIn(username, password) {
+    console.log('auth service signIn, username:' + username + ', password:' + password);
+    Auth.signIn(username, password)
+      .then(res => {
+        console.log('res', res);
+      })
+      .catch(err => {
+        console.error('err', err);
+      });
+  }
 
   /*  public isAuthenticated(): Observable<boolean> {
       return fromPromise(Auth.currentAuthenticatedUser())
