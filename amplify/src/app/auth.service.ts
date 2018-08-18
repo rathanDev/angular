@@ -18,8 +18,7 @@ export class AuthService {
   }
 
   public signUp(username, email, password) {
-    console.log('auth service signUp, email:' + email + ', password:' + password);
-
+    console.log('auth service signUp, username: ' + username + ', email:' + email + ', password:' + password);
     const body = {
       'username': username,
       'password': password,
@@ -27,7 +26,6 @@ export class AuthService {
         'email': email
       }
     };
-
     Auth.signUp(body)
       .then(res => {
         console.log('res', res);
@@ -37,9 +35,16 @@ export class AuthService {
       });
   }
 
-  /*  public confirmSignUp(email, code): Observable<any> {
-      return fromPromise(Auth.confirmSignUp(email, code));
-    }*/
+  public confirmSignUp(username, code) {
+    console.log('confirm sign up username:' + username + ', code:' + code);
+    return Auth.confirmSignUp(username, code)
+      .then(res => {
+        console.log('res', res);
+      })
+      .catch(err => {
+        console.error('err', err);
+      });
+  }
 
   /*public signIn(email, password): Observable<any> {
     console.log('auth service signIn, email:' + email + ', password:' + password);
@@ -73,8 +78,12 @@ export class AuthService {
       .then(user => {
         console.log('user', user);
       })
-      .then(data => console.log(data))
-      .catch(err => console.log(err));
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   public signOut() {

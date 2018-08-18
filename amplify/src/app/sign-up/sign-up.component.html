@@ -23,4 +23,22 @@
 
   </form>
 
+  <p>Confirm sign up</p>
+
+  <form (ngSubmit)="confirm(confirmationForm)" #confirmationForm="ngForm">
+
+    <p>
+      <label>Username:</label>
+      <input type="text" name="username" ngModel required>
+    </p>
+
+    <p>
+      <label>Code:</label>
+      <input type="text" name="code" ngModel required>
+    </p>
+
+    <button type="submit">Confirm</button>
+
+  </form>
+
 </div>

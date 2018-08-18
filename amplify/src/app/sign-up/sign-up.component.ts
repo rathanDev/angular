@@ -31,4 +31,9 @@ export class SignUpComponent implements OnInit {
     this.auth.signUp(username, email, password);
   }
 
+  confirm(form: NgForm) {
+    console.log('confirm', form.value);
+    this.auth.confirmSignUp(form.value.username, form.value.code);
+  }
+
 }
