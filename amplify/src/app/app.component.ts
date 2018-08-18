@@ -16,14 +16,12 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // this.subscription = this.auth.isAuthenticated()
-    //   .subscribe(res => {
-    //     this.loggedIn = res;
-    //   });
+    console.log('isAuthenticated');
+    this.auth.isAuthenticated();
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 
   onClickSignOut() {
