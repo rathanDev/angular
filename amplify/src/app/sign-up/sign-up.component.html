@@ -5,6 +5,11 @@
   <form (ngSubmit)="onSignUp(signUpform)" #signUpform="ngForm">
 
     <p>
+      <label>Username:</label>
+      <input type="text" name="username" ngModel required>
+    </p>
+
+    <p>
       <label>Email:</label>
       <input type="email" name="userEmail" ngModel required>
     </p>

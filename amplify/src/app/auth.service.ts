@@ -17,15 +17,23 @@ export class AuthService {
     this.loggedIn = new BehaviorSubject<boolean>(false);
   }
 
-  public signUp(email, password) {
+  public signUp(username, email, password) {
     console.log('auth service signUp, email:' + email + ', password:' + password);
-    Auth.signUp(email, password)
+
+    const body = {
+      'username': username,
+      'password': password,
+      'attributes': {
+        'email': email
+      }
+    };
+
+    Auth.signUp(body)
       .then(res => {
         console.log('res', res);
       })
       .catch(err => {
         console.error('Err', err);
-        return;
       });
   }
 
