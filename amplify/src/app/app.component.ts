@@ -8,7 +8,7 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'app';
+  title = 'Amplify';
   subscription: Subscription;
   public loggedIn: boolean;
 
