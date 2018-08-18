@@ -14,8 +14,6 @@ awsmobile configure
   
 npm i -g yarn
 
-
-
 # Challenges
 
 > error
@@ -29,6 +27,9 @@ node_modules/aws-sdk/lib/dynamodb/document_client.d.ts(93,30): error TS2304: Can
 - npm -i -d @types/node
 - from tsconfig.app.json remove "types": []
 
-
 > angular global is not defined
-< Add (window as any).global = window; to polyfills.ts
+- Add (window as any).global = window; to polyfills.ts
+
+> Cannot perform specific action because there does not exist a valid use pool domain associated with the user pool
+- email verification link can be used only with a domain name 
+- else use verification code
