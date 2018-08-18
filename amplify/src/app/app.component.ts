@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from './auth.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,25 @@ import {AuthService} from './auth.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'app';
+  subscription: Subscription;
+  public loggedIn: boolean;
 
   constructor(private auth: AuthService) {
   }
 
-  ngOnDestroy(): void {
+  ngOnInit(): void {
+    this.subscription = this.auth.isAuthenticated()
+      .subscribe(res => {
+        this.loggedIn = res;
+      });
   }
 
-  ngOnInit(): void {
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
+
+  onClickSignOut() {
+    this.auth.signOut();
+  }
+
 }
