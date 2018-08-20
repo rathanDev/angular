@@ -92,16 +92,16 @@ export class AuthService {
   }
 
   public signOut() {
-    fromPromise(Auth.signOut())
-      .subscribe(
-        res => {
-          this.signedIn.next(false);
-          this.router.navigate(['/login']);
-        },
-        err => {
-          console.error('err', err);
-        }
-      );
+    console.log('signOut');
+    Auth.signOut()
+      .then(res => {
+        console.log('res ', res);
+        this.signedIn.next(false);
+      })
+      .catch(err => {
+        console.error('err', err);
+        this.signedIn.next(false);
+      });
   }
 
 }

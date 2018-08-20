@@ -32,4 +32,8 @@ export class SignInComponent implements OnInit {
     this.auth.signIn(form.value.username, form.value.password);
   }
 
+  signOut() {
+    this.auth.signOut();
+  }
+
 }
