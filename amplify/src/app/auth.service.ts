@@ -25,10 +25,19 @@ export class AuthService {
       'username': username,
       'password': password,
       'attributes': {
+        'email': email
+      }
+    };
+    /*
+    const body = {
+      'username': username,
+      'password': password,
+      'attributes': {
         'email': email,
         'phone_number': phone
       }
     };
+    * */
     Auth.signUp(body)
       .then(res => {
         console.log('res', res);
