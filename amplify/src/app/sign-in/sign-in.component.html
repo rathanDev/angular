@@ -1,5 +1,8 @@
 <form (ngSubmit)="signIn(signInForm)" #signInForm="ngForm">
 
+  <br>
+  <p>Signed In : {{signedIn}}</p>
+
   <p>
     <label>Username:</label>
     <input type="text" name="username" ngModel required>

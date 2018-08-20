@@ -10,11 +10,11 @@ import {fromPromise} from 'rxjs/internal/observable/fromPromise';
 })
 export class AuthService {
 
-  public loggedIn: BehaviorSubject<boolean>;
+  public signedIn: BehaviorSubject<boolean>;
 
   constructor(private router: Router) {
     Amplify.configure(environment.amplify);
-    this.loggedIn = new BehaviorSubject<boolean>(false);
+    this.signedIn = new BehaviorSubject<boolean>(false);
   }
 
   public signUp(username, email, password) {
@@ -51,9 +51,11 @@ export class AuthService {
     Auth.signIn(username, password)
       .then(res => {
         console.log('res', res);
+        this.signedIn.next(true);
       })
       .catch(err => {
         console.error('err', err);
+        this.signedIn.next(false);
       });
   }
 
@@ -93,7 +95,7 @@ export class AuthService {
     fromPromise(Auth.signOut())
       .subscribe(
         res => {
-          this.loggedIn.next(false);
+          this.signedIn.next(false);
           this.router.navigate(['/login']);
         },
         err => {

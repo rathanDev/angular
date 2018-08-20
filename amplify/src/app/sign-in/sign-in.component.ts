@@ -9,10 +9,23 @@ import {AuthService} from '../auth.service';
 })
 export class SignInComponent implements OnInit {
 
+  signedIn: boolean;
+
   constructor(private auth: AuthService) {
+    this.signedIn = false;
   }
 
   ngOnInit() {
+    this.auth.signedIn.subscribe(
+      res => {
+        console.log('signedId res', res);
+        this.signedIn = res;
+      },
+      err => {
+        console.error('signedIn err', err);
+        this.signedIn = false;
+      }
+    );
   }
 
   signIn(form: NgForm) {
