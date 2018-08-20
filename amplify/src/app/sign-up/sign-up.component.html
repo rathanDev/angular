@@ -1,6 +1,6 @@
 <p>sign-up</p>
 
-<div class="sign-up" *ngIf="!signUpSuccessful">
+<div class="sign-up">
 
   <form (ngSubmit)="onSignUp(signUpform)" #signUpform="ngForm">
 
@@ -11,15 +11,20 @@
 
     <p>
       <label>Email :</label>
-      <input type="email" name="userEmail" ngModel required>
+      <input type="email" name="email" ngModel required>
+    </p>
+
+    <p>
+      <label>Phone Number :</label>
+      <input type="text" name="phone" ngModel required>
     </p>
 
     <p>
       <label>Password :</label>
-      <input type="password" name="userPassword" ngModel required>
+      <input type="password" name="password" ngModel required>
     </p>
 
-    <button type="submit">Sign Up</button>
+    <button type="submit">Sign Up</button>  => {{signUpSuccessful}}
 
   </form>
 

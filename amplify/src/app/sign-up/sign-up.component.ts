@@ -17,7 +17,16 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.auth.signedUpSuccessful.subscribe(
+      res => {
+        console.log('res ', res);
+        this.signUpSuccessful = res;
+      },
+      err => {
+        console.error('err', err);
+        this.signUpSuccessful = false;
+      }
+    );
   }
 
   initForm() {
@@ -26,9 +35,10 @@ export class SignUpComponent implements OnInit {
   onSignUp(form: NgForm) {
     console.log('signUp', form.value);
     const username = form.value.username;
-    const email = form.value.userEmail;
-    const password = form.value.userPassword;
-    this.auth.signUp(username, email, password);
+    const email = form.value.email;
+    const password = form.value.password;
+    const phone = form.value.phone;
+    this.auth.signUp(username, email, phone, password);
   }
 
   confirm(form: NgForm) {

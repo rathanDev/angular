@@ -10,28 +10,33 @@ import {fromPromise} from 'rxjs/internal/observable/fromPromise';
 })
 export class AuthService {
 
+  public signedUpSuccessful: BehaviorSubject<boolean>;
   public signedIn: BehaviorSubject<boolean>;
 
   constructor(private router: Router) {
     Amplify.configure(environment.amplify);
+    this.signedUpSuccessful = new BehaviorSubject<boolean>(false);
     this.signedIn = new BehaviorSubject<boolean>(false);
   }
 
-  public signUp(username, email, password) {
-    console.log('auth service signUp, username: ' + username + ', email:' + email + ', password:' + password);
+  public signUp(username, email, phone, password) {
+    console.log('auth service signUp, username: ' + username + ', email:' + email + ', phone:' + phone + ', password:' + password);
     const body = {
       'username': username,
       'password': password,
       'attributes': {
-        'email': email
+        'email': email,
+        'phone_number': phone
       }
     };
     Auth.signUp(body)
       .then(res => {
         console.log('res', res);
+        this.signedUpSuccessful.next(true);
       })
       .catch(err => {
         console.error('Err', err);
+        this.signedUpSuccessful.next(false);
       });
   }
 
