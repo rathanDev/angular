@@ -14,3 +14,11 @@ npm i -g yarn
 
 awsmobile init
   - enter project details
+
+
+
+# -------------------------------------------------------------------------------------------
+
+aws configure
+
+aws s3api list-buckets
