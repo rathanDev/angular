@@ -6,9 +6,11 @@ npm install --save aws-amplify
 npm install --save aws-amplify-angular
 
 npm i -g awsmobile-cli
-awsmobile configure
 
+awsmobile configure
+  - enter accessKeyId and secretAccessKey
+  
 npm i -g yarn
 
 awsmobile init
-
+  - enter project details
