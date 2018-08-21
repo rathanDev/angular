@@ -14,7 +14,7 @@ export class AuthService {
   public signedIn: BehaviorSubject<boolean>;
 
   constructor(private router: Router) {
-    Amplify.configure(environment.amplify);
+    Amplify.configure(environment.amplify.Auth.angular);
     this.signedUpSuccessful = new BehaviorSubject<boolean>(false);
     this.signedIn = new BehaviorSubject<boolean>(false);
   }
