@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-bucket',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BucketComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
+  }
+
+  listPictures() {
+    this.auth.listPictures();
   }
 
 }
