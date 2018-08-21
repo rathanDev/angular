@@ -15,12 +15,12 @@ export class AuthService {
   public resendCodeEvent: BehaviorSubject<boolean>;
   public signedIn: BehaviorSubject<boolean>;
 
-  constructor(private router: Router) {
-    // Amplify.configure(environment.amplify.Auth.angularPool);
-    Amplify.configure({
-      Auth: environment.amplify.Auth.angularPool,
-      Storage: environment.amplify.storage
-    });
+  constructor() {
+    Amplify.configure(environment.amplify.Auth.angularPool);
+    // Amplify.configure({
+    //   Auth: environment.amplify.Auth.angularPool,
+    //   Storage: environment.amplify.storage
+    // });
     this.signUpEvent = new BehaviorSubject<boolean>(false);
     this.confirmSignUpEvent = new BehaviorSubject(false);
     this.resendCodeEvent = new BehaviorSubject(false);
@@ -147,7 +147,13 @@ export class AuthService {
 
   public listPictures() {
     console.log('listPictures');
-    Storage.configure({level: 'public '});
+
+    Storage.configure({
+      bucket: 'arn:aws:s3:::test-aug-bucket',
+      region: 'us-east-1',
+      identityPoolId: 'us-east-1:7ea8f079-9171-4563-bac7-fb580bc96a50'
+    });
+
     Storage.get('microserviceArchi.png')
       .then(
         res => {
