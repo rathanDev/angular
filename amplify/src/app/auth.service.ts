@@ -22,7 +22,21 @@ export class AuthService {
     // });
     console.log('auth service constructor');
 
+    // public access
+    // Amplify.configure({
+    //   Auth: {
+    //     identityPoolId: 'us-east-1:fb232da5-18c8-43c9-a380-27f2ed6a4345',
+    //     region: 'us-east-1',
+    //     userPoolId: 'us-east-1_jPBiZJltm',
+    //     userPoolWebClientId: '4b5mel5kbfe66emskjfoj64gpl'
+    //   },
+    //   Storage: {
+    //     bucket: 'test-aug-bucket',
+    //     region: 'us-east-1'
+    //   }
+    // });
 
+    // private access
     Amplify.configure({
       Auth: {
         identityPoolId: 'us-east-1:fb232da5-18c8-43c9-a380-27f2ed6a4345',
@@ -31,7 +45,7 @@ export class AuthService {
         userPoolWebClientId: '4b5mel5kbfe66emskjfoj64gpl'
       },
       Storage: {
-        bucket: 'test-aug-bucket',
+        bucket: 'test-trivyol-profile-photos-sandbox',
         region: 'us-east-1'
       }
     });
@@ -160,7 +174,7 @@ export class AuthService {
       });
   }
 
-  public listPictures() {
+  public listPublicPictures() {
     log('list Pictures');
 
     // Storage.configure({
@@ -183,6 +197,13 @@ export class AuthService {
       .then(result => console.log(result))
       .catch(err => console.error(err));
 
+  }
+
+  public listPrivatePictures() {
+    log('list private pics');
+    Storage.put('app.module.ts', 'Hello')
+      .then(result => console.log(result))
+      .catch(err => console.error(err));
   }
 
 }

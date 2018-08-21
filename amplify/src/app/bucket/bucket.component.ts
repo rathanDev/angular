@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth.service';
 
 @Component({
@@ -8,13 +8,18 @@ import {AuthService} from '../auth.service';
 })
 export class BucketComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService) {
+  }
 
   ngOnInit() {
   }
 
   listPictures() {
-    this.auth.listPictures();
+    this.auth.listPublicPictures();
+  }
+
+  listNonPublicPictures() {
+    this.auth.listPrivatePictures();
   }
 
 }
