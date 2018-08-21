@@ -6,12 +6,16 @@ export const environment = {
   production: false,
   amplify: {
     Auth: {
-      angular: {
+      angularPool: {
         identityPoolId: 'us-east-1:7ea8f079-9171-4563-bac7-fb580bc96a50',
         region: 'us-east-1',
         userPoolId: 'us-east-1_QgX2kI3Lp',
         userPoolWebClientId: '30mqqhd49kel6033ua0mvsk4cq'
       }
+    },
+    storage: {
+      bucket: 'test-aug-bucket',
+      region: 'us-east-1'
     }
   }
 };

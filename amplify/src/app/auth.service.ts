@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import Amplify, {Auth} from 'aws-amplify';
+import {Storage} from 'aws-amplify';
 import {environment} from '../environments/environment';
-import {fromPromise} from 'rxjs/internal/observable/fromPromise';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,11 @@ export class AuthService {
   public signedIn: BehaviorSubject<boolean>;
 
   constructor(private router: Router) {
-    Amplify.configure(environment.amplify.Auth.angular);
+    // Amplify.configure(environment.amplify.Auth.angularPool);
+    Amplify.configure({
+      Auth: environment.amplify.Auth.angularPool,
+      Storage: environment.amplify.storage
+    });
     this.signUpEvent = new BehaviorSubject<boolean>(false);
     this.confirmSignUpEvent = new BehaviorSubject(false);
     this.resendCodeEvent = new BehaviorSubject(false);
@@ -139,6 +143,20 @@ export class AuthService {
         console.error('err', err);
         this.signedIn.next(false);
       });
+  }
+
+  public listPictures() {
+    console.log('listPictures');
+    Storage.configure({level: 'public '});
+    Storage.get('microserviceArchi.png')
+      .then(
+        res => {
+          console.log('res', res);
+        },
+        err => {
+          console.error('err', err);
+        }
+      );
   }
 
 }

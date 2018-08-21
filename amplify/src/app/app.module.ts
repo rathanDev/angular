@@ -7,13 +7,15 @@ import {AppRoutingModule} from './app-routing.module';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import {FormsModule} from '@angular/forms';
+import { BucketComponent } from './bucket/bucket.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    BucketComponent
   ],
   imports: [
     BrowserModule,
