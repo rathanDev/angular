@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import Amplify, {Auth, Storage} from 'aws-amplify';
 import {environment} from '../environments/environment';
+import {log} from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,27 @@ export class AuthService {
   public signedIn: BehaviorSubject<boolean>;
 
   constructor() {
-    Amplify.configure(environment.amplify.Auth.angularPool);
+    // Amplify.configure(environment.amplify.Auth.angularPool);
     // Amplify.configure({
     //   Auth: environment.amplify.Auth.angularPool,
     //   Storage: environment.amplify.storage
     // });
+    console.log('auth service constructor');
+
+
+    Amplify.configure({
+      Auth: {
+        identityPoolId: 'us-east-1:fb232da5-18c8-43c9-a380-27f2ed6a4345',
+        region: 'us-east-1',
+        userPoolId: 'us-east-1_jPBiZJltm',
+        userPoolWebClientId: '4b5mel5kbfe66emskjfoj64gpl'
+      },
+      Storage: {
+        bucket: 'test-aug-bucket',
+        region: 'us-east-1'
+      }
+    });
+
     this.signUpEvent = new BehaviorSubject<boolean>(false);
     this.confirmSignUpEvent = new BehaviorSubject(false);
     this.resendCodeEvent = new BehaviorSubject(false);
@@ -144,23 +161,28 @@ export class AuthService {
   }
 
   public listPictures() {
-    console.log('listPictures');
+    log('list Pictures');
 
-    Storage.configure({
-      bucket: 'arn:aws:s3:::test-aug-bucket',
-      region: 'us-east-1',
-      identityPoolId: 'us-east-1:7ea8f079-9171-4563-bac7-fb580bc96a50'
-    });
+    // Storage.configure({
+    //   bucket: 'arn:aws:s3:::test-aug-bucket',
+    //   region: 'us-east-1',
+    //   identityPoolId: 'us-east-1:7ea8f079-9171-4563-bac7-fb580bc96a50'
+    // });
 
-    Storage.get('microserviceArchi.png')
-      .then(
-        res => {
-          console.log('res', res);
-        },
-        err => {
-          console.error('err', err);
-        }
-      );
+    // Storage.get('microserviceArchi.png')
+    //   .then(
+    //     res => {
+    //       console.log('res', res);
+    //     },
+    //     err => {
+    //       console.error('err', err);
+    //     }
+    //   );
+
+    Storage.put('app.module.ts', 'Hello')
+      .then(result => console.log(result))
+      .catch(err => console.error(err));
+
   }
 
 }
