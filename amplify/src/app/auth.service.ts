@@ -10,12 +10,16 @@ import {fromPromise} from 'rxjs/internal/observable/fromPromise';
 })
 export class AuthService {
 
-  public signedUpSuccessful: BehaviorSubject<boolean>;
+  public signUpEvent: BehaviorSubject<boolean>;
+  public confirmSignUpEvent: BehaviorSubject<boolean>;
+  public resendCodeEvent: BehaviorSubject<boolean>;
   public signedIn: BehaviorSubject<boolean>;
 
   constructor(private router: Router) {
     Amplify.configure(environment.amplify.Auth.angular);
-    this.signedUpSuccessful = new BehaviorSubject<boolean>(false);
+    this.signUpEvent = new BehaviorSubject<boolean>(false);
+    this.confirmSignUpEvent = new BehaviorSubject(false);
+    this.resendCodeEvent = new BehaviorSubject(false);
     this.signedIn = new BehaviorSubject<boolean>(false);
   }
 
@@ -41,11 +45,11 @@ export class AuthService {
     Auth.signUp(body)
       .then(res => {
         console.log('res', res);
-        this.signedUpSuccessful.next(true);
+        this.signUpEvent.next(true);
       })
       .catch(err => {
         console.error('Err', err);
-        this.signedUpSuccessful.next(false);
+        this.signUpEvent.next(false);
       });
   }
 
@@ -54,10 +58,29 @@ export class AuthService {
     return Auth.confirmSignUp(username, code)
       .then(res => {
         console.log('res', res);
+        this.confirmSignUpEvent.next(true);
       })
       .catch(err => {
         console.error('err', err);
+        this.confirmSignUpEvent.next(false);
       });
+  }
+
+  public resendConfirmationCode(username) {
+    console.log('resend ', username);
+    return Auth.resendSignUp(username)
+      .then(
+        res => {
+          console.log('res ', res);
+          this.resendCodeEvent.next(true);
+        }
+      )
+      .catch(
+        err => {
+          console.error('err ', err);
+          this.resendCodeEvent.next(false);
+        }
+      );
   }
 
   public signIn(username, password) {

@@ -10,21 +10,45 @@ import {AuthService} from '../auth.service';
 })
 export class SignUpComponent implements OnInit {
 
-  signUpSuccessful: boolean;
+  signedUp: boolean;
+  confirmedSignUp: boolean;
+  resentCode: boolean;
 
   constructor(private router: Router,
               private auth: AuthService) {
+    this.confirmedSignUp = false;
+    this.resentCode = false;
   }
 
   ngOnInit() {
-    this.auth.signedUpSuccessful.subscribe(
+    this.auth.signUpEvent.subscribe(
       res => {
         console.log('res ', res);
-        this.signUpSuccessful = res;
+        this.signedUp = res;
       },
       err => {
         console.error('err', err);
-        this.signUpSuccessful = false;
+        this.signedUp = false;
+      }
+    );
+    this.auth.confirmSignUpEvent.subscribe(
+      res => {
+        console.log('confirmSignUp ', res);
+        this.confirmedSignUp = res;
+      },
+      err => {
+        console.error('confSignUp err', err);
+        this.confirmedSignUp = false;
+      }
+    );
+    this.auth.resendCodeEvent.subscribe(
+      res => {
+        console.log('resendCodeEvent ', res);
+        this.resentCode = res;
+      },
+      err => {
+        console.error('resendCodeEvent ', err);
+        this.resentCode = false;
       }
     );
   }
@@ -44,6 +68,10 @@ export class SignUpComponent implements OnInit {
   confirm(form: NgForm) {
     console.log('confirm', form.value);
     this.auth.confirmSignUp(form.value.username, form.value.code);
+  }
+
+  resendCode(form: NgForm) {
+    this.auth.resendConfirmationCode(form.value.username);
   }
 
 }

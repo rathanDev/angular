@@ -24,7 +24,8 @@
       <input type="password" name="password" ngModel required>
     </p>
 
-    <button type="submit">Sign Up</button>  => {{signUpSuccessful}}
+    <button type="submit">Sign Up</button>
+    => {{signedUp}}
 
   </form>
 
@@ -45,7 +46,24 @@
     </p>
 
     <button type="submit">Confirm</button>
+    ==> {{confirmedSignUp}}
 
   </form>
+
+  <hr>
+
+  <p>Resend Verification Code</p>
+
+  <form (ngSubmit)="resendCode(resendCodeForm)" #resendCodeForm="ngForm">
+    <p>
+      <label>Username:</label>
+      <input type="text" name="username" ngModel required>
+    </p>
+    <button type="submit">Resend Confirmation Code</button>
+    ==> {{resentCode}}
+  </form>
+
+  <br>
+  <br>
 
 </div>
