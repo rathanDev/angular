@@ -185,28 +185,28 @@ export class AuthService {
     //   identityPoolId: 'us-east-1:7ea8f079-9171-4563-bac7-fb580bc96a50'
     // });
 
-    Storage.get('microserviceArchi.png')
-      .then(
-        res => {
-          console.log('res', res);
-          this.imageUrl = res.toString();
-          console.log('this.imageUrl ', this.imageUrl);
-        },
-        err => {
-          console.error('err', err);
-        }
-      );
+    Storage
+      .put('app.component.html', 'Protected Content', {
+        level: 'protected',
+        contentType: 'text/plain'
+      })
+      .then(result => {
+        console.log(result);
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
-    Storage.put('app.component.css', 'Protected Content', {
-      level: 'protected',
-      contentType: 'text/plain'
-    })
-      .then(result => console.log(result))
-      .catch(err => console.log(err));
-
-    // Storage.put('app.component.ts', 'Hello')
-    //   .then(result => console.log(result))
-    //   .catch(err => console.error(err));
+    Storage
+      .get('microserviceArchi.png')
+      .then(res => {
+        console.log('res', res);
+        this.imageUrl = res.toString();
+        console.log('this.imageUrl ', this.imageUrl);
+      })
+      .catch(err => {
+        console.error('err', err);
+      });
 
   }
 
