@@ -14,6 +14,8 @@ export class AuthService {
   public resendCodeEvent: BehaviorSubject<boolean>;
   public signedIn: BehaviorSubject<boolean>;
 
+  imageUrl: string;
+
   constructor() {
     // Amplify.configure(environment.amplify.Auth.angularPool);
     // Amplify.configure({
@@ -23,6 +25,20 @@ export class AuthService {
     console.log('auth service constructor');
 
     // public access
+    Amplify.configure({
+      Auth: {
+        identityPoolId: 'us-east-1:fb232da5-18c8-43c9-a380-27f2ed6a4345',
+        region: 'us-east-1',
+        userPoolId: 'us-east-1_jPBiZJltm',
+        userPoolWebClientId: '4b5mel5kbfe66emskjfoj64gpl'
+      },
+      Storage: {
+        bucket: 'test-aug-bucket',
+        region: 'us-east-1'
+      }
+    });
+
+    // private access
     // Amplify.configure({
     //   Auth: {
     //     identityPoolId: 'us-east-1:fb232da5-18c8-43c9-a380-27f2ed6a4345',
@@ -35,20 +51,6 @@ export class AuthService {
     //     region: 'us-east-1'
     //   }
     // });
-
-    // private access
-    Amplify.configure({
-      Auth: {
-        identityPoolId: 'us-east-1:fb232da5-18c8-43c9-a380-27f2ed6a4345',
-        region: 'us-east-1',
-        userPoolId: 'us-east-1_jPBiZJltm',
-        userPoolWebClientId: '4b5mel5kbfe66emskjfoj64gpl'
-      },
-      Storage: {
-        bucket: 'test-trivyol-profile-photos-sandbox',
-        region: 'us-east-1'
-      }
-    });
 
     this.signUpEvent = new BehaviorSubject<boolean>(false);
     this.confirmSignUpEvent = new BehaviorSubject(false);
@@ -183,19 +185,28 @@ export class AuthService {
     //   identityPoolId: 'us-east-1:7ea8f079-9171-4563-bac7-fb580bc96a50'
     // });
 
-    // Storage.get('microserviceArchi.png')
-    //   .then(
-    //     res => {
-    //       console.log('res', res);
-    //     },
-    //     err => {
-    //       console.error('err', err);
-    //     }
-    //   );
+    Storage.get('microserviceArchi.png')
+      .then(
+        res => {
+          console.log('res', res);
+          this.imageUrl = res.toString();
+          console.log('this.imageUrl ', this.imageUrl);
+        },
+        err => {
+          console.error('err', err);
+        }
+      );
 
-    Storage.put('app.module.ts', 'Hello')
+    Storage.put('app.component.css', 'Protected Content', {
+      level: 'protected',
+      contentType: 'text/plain'
+    })
       .then(result => console.log(result))
-      .catch(err => console.error(err));
+      .catch(err => console.log(err));
+
+    // Storage.put('app.component.ts', 'Hello')
+    //   .then(result => console.log(result))
+    //   .catch(err => console.error(err));
 
   }
 

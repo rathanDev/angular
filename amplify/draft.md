@@ -1,7 +1,12 @@
 Reference:
 https://aws-amplify.github.io/amplify-js/index.html
+https://aws-amplify.github.io/amplify-js/media/storage_guide.html
+
 https://angular.io/
 https://github.com/daikiojm/angular-aws-amplify/tree/master/src/app
+
+
+# ---------------------------------------------------------------------------------------
 
 npm install --save aws-amplify
 npm install --save aws-amplify-angular

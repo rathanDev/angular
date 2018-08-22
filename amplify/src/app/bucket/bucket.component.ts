@@ -8,17 +8,20 @@ import {AuthService} from '../auth.service';
 })
 export class BucketComponent implements OnInit {
 
+  imageUrl: string;
+
   constructor(private auth: AuthService) {
+    this.imageUrl = auth.imageUrl;
   }
 
   ngOnInit() {
   }
 
-  listPictures() {
+  listPublicPictures() {
     this.auth.listPublicPictures();
   }
 
-  listNonPublicPictures() {
+  listPrivatePictures() {
     this.auth.listPrivatePictures();
   }
 
