@@ -185,6 +185,7 @@ export class AuthService {
     //   identityPoolId: 'us-east-1:7ea8f079-9171-4563-bac7-fb580bc96a50'
     // });
 
+    /*
     Storage
       .put('app.component.html', 'Protected Content', {
         level: 'protected',
@@ -196,6 +197,7 @@ export class AuthService {
       .catch(err => {
         console.log(err);
       });
+    */
 
     Storage
       .get('microserviceArchi.png')
