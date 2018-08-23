@@ -17,32 +17,10 @@ export class AuthService {
   public getImageEvent: BehaviorSubject<string>;
 
   constructor() {
-    // Amplify.configure(environment.amplify.Auth.angularPool);
-    // Amplify.configure({
-    //   Auth: environment.amplify.Auth.angularPool,
-    //   Storage: environment.amplify.storage
-    // });
-    console.log('auth service constructor');
-
-    // public access
     Amplify.configure({
       Auth: environment.amplify.auth,
       Storage: environment.amplify.storage
     });
-
-    // private access
-    // Amplify.configure({
-    //   Auth: {
-    //     identityPoolId: 'us-east-1:fb232da5-18c8-43c9-a380-27f2ed6a4345',
-    //     region: 'us-east-1',
-    //     userPoolId: 'us-east-1_jPBiZJltm',
-    //     userPoolWebClientId: '4b5mel5kbfe66emskjfoj64gpl'
-    //   },
-    //   Storage: {
-    //     bucket: 'test-aug-bucket',
-    //     region: 'us-east-1'
-    //   }
-    // });
 
     this.signUpEvent = new BehaviorSubject<boolean>(false);
     this.confirmSignUpEvent = new BehaviorSubject(false);
