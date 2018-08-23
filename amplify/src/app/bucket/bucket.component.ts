@@ -12,6 +12,7 @@ declare var $: any;
 export class BucketComponent implements OnInit {
 
   imageUrl: string;
+  fileName: string;
 
   constructor(private auth: AuthService) {
     this.auth.getImageEvent.subscribe(res => {
@@ -31,6 +32,11 @@ export class BucketComponent implements OnInit {
     const file = $('#fileInputId').prop('files')[0];
     console.log('image file', file);
     this.auth.uploadPic(file);
+  }
+
+  viewPic() {
+    console.log('name ', this.fileName);
+    this.auth.viewPic(this.fileName);
   }
 
   listPublicPictures() {

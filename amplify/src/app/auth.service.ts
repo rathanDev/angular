@@ -192,6 +192,17 @@ export class AuthService {
       });
   }
 
+  public viewPic(name) {
+    Storage.get(name)
+      .then(res => {
+        console.log('res ', res);
+        this.getImageEvent.next(res.toString());
+      })
+      .catch(err => {
+        console.error('err', err);
+      });
+  }
+
   public listPublicPictures() {
     log('list Pictures');
 
