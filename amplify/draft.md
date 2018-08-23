@@ -6,6 +6,13 @@ https://angular.io/
 https://github.com/daikiojm/angular-aws-amplify/tree/master/src/app
 
 
+# debugging ----------------------------------------------------------------------------
+
+var appBucketComponent = document.querySelector('app-bucket');
+ng.probe(appBucketComponent)
+ng.probe(appBucketComponent).injector
+ng.probe(appBucketComponent).injector.view.nodes
+  
 # ---------------------------------------------------------------------------------------
 
 sample cors
