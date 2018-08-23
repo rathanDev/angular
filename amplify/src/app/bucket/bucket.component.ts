@@ -31,12 +31,12 @@ export class BucketComponent implements OnInit {
   upload() {
     const file = $('#fileInputId').prop('files')[0];
     console.log('image file', file);
-    this.s3Service.uploadPic(file);
+    this.s3Service.uploadPicPublic(file);
   }
 
   viewPic() {
     console.log('name ', this.fileName);
-    this.s3Service.viewPic(this.fileName);
+    this.s3Service.viewPicPublic(this.fileName);
   }
 
   listPublicPictures() {

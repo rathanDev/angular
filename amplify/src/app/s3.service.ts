@@ -20,7 +20,7 @@ export class S3Service {
     this.getImageEvent = new BehaviorSubject('');
   }
 
-  public uploadPic(pic) {
+  public uploadPicPublic(pic) {
     console.log('pic', pic);
     Storage
       .put(pic.name, pic, {
@@ -35,7 +35,7 @@ export class S3Service {
       });
   }
 
-  public viewPic(name) {
+  public viewPicPublic(name) {
     Storage.get(name)
       .then(res => {
         console.log('res ', res);
