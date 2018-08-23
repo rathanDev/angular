@@ -14,7 +14,7 @@ export class AuthService {
   public resendCodeEvent: BehaviorSubject<boolean>;
   public signedIn: BehaviorSubject<boolean>;
 
-  imageUrl: string;
+  public getImageEvent: BehaviorSubject<string>;
 
   constructor() {
     // Amplify.configure(environment.amplify.Auth.angularPool);
@@ -56,6 +56,7 @@ export class AuthService {
     this.confirmSignUpEvent = new BehaviorSubject(false);
     this.resendCodeEvent = new BehaviorSubject(false);
     this.signedIn = new BehaviorSubject<boolean>(false);
+    this.getImageEvent = new BehaviorSubject('');
   }
 
   public signUp(username, email, phone, password) {
@@ -176,6 +177,21 @@ export class AuthService {
       });
   }
 
+  public uploadPic(pic) {
+    console.log('pic', pic);
+    Storage
+      .put('codePenXhr.png', pic, {
+        level: 'public',
+        contentType: 'image/png'
+      })
+      .then(result => {
+        console.log(result);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   public listPublicPictures() {
     log('list Pictures');
 
@@ -187,7 +203,7 @@ export class AuthService {
 
     /*
     Storage
-      .put('app.component.html', 'Protected Content', {
+      .put('codePenXhr.png', 'Protected Content', {
         level: 'protected',
         contentType: 'text/plain'
       })
@@ -200,11 +216,10 @@ export class AuthService {
     */
 
     Storage
-      .get('microserviceArchi.png')
+      .get('codePenXhr.png')
       .then(res => {
         console.log('res', res);
-        this.imageUrl = res.toString();
-        console.log('this.imageUrl ', this.imageUrl);
+        this.getImageEvent.next(res.toString());
       })
       .catch(err => {
         console.error('err', err);
