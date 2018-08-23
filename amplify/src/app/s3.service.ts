@@ -25,7 +25,7 @@ export class S3Service {
     Storage
       .put(pic.name, pic, {
         level: 'public',
-        contentType: 'image/png'
+        contentType: 'image'
       })
       .then(result => {
         console.log(result);
@@ -33,6 +33,7 @@ export class S3Service {
       .catch(err => {
         console.log(err);
       });
+    /* contentType: 'image/png' */
   }
 
   public viewPicPublic(name) {
