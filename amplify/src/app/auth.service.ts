@@ -12,7 +12,7 @@ export class AuthService {
   public signUpEvent: BehaviorSubject<boolean>;
   public confirmSignUpEvent: BehaviorSubject<boolean>;
   public resendCodeEvent: BehaviorSubject<boolean>;
-  public signedIn: BehaviorSubject<boolean>;
+  public signInEvent: BehaviorSubject<boolean>;
 
   public getImageEvent: BehaviorSubject<string>;
 
@@ -55,7 +55,7 @@ export class AuthService {
     this.signUpEvent = new BehaviorSubject<boolean>(false);
     this.confirmSignUpEvent = new BehaviorSubject(false);
     this.resendCodeEvent = new BehaviorSubject(false);
-    this.signedIn = new BehaviorSubject<boolean>(false);
+    this.signInEvent = new BehaviorSubject<boolean>(false);
     this.getImageEvent = new BehaviorSubject('');
   }
 
@@ -124,11 +124,11 @@ export class AuthService {
     Auth.signIn(username, password)
       .then(res => {
         console.log('res', res);
-        this.signedIn.next(true);
+        this.signInEvent.next(true);
       })
       .catch(err => {
         console.error('err', err);
-        this.signedIn.next(false);
+        this.signInEvent.next(false);
       });
   }
 
@@ -169,11 +169,11 @@ export class AuthService {
     Auth.signOut()
       .then(res => {
         console.log('res ', res);
-        this.signedIn.next(false);
+        this.signInEvent.next(false);
       })
       .catch(err => {
         console.error('err', err);
-        this.signedIn.next(false);
+        this.signInEvent.next(false);
       });
   }
 

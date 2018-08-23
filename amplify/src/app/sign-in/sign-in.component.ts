@@ -16,13 +16,13 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.signedIn.subscribe(
+    this.auth.signInEvent.subscribe(
       res => {
-        console.log('signedId res', res);
+        console.log('signInEvent res', res);
         this.signedIn = res;
       },
       err => {
-        console.error('signedIn err', err);
+        console.error('signInEvent err', err);
         this.signedIn = false;
       }
     );
