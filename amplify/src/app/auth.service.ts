@@ -180,7 +180,7 @@ export class AuthService {
   public uploadPic(pic) {
     console.log('pic', pic);
     Storage
-      .put('codePenXhr.png', pic, {
+      .put(pic.name, pic, {
         level: 'public',
         contentType: 'image/png'
       })
