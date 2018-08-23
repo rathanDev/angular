@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../auth.service';
 import {log} from 'util';
+import {S3Service} from '../s3.service';
 
 declare var $: any;
 
@@ -14,8 +14,8 @@ export class BucketComponent implements OnInit {
   imageUrl: string;
   fileName: string;
 
-  constructor(private auth: AuthService) {
-    this.auth.getImageEvent.subscribe(res => {
+  constructor(private s3Service: S3Service) {
+    this.s3Service.getImageEvent.subscribe(res => {
         console.log('res ', res);
         this.imageUrl = res;
         log('this.imageUrl: ' + this.imageUrl);
@@ -31,20 +31,20 @@ export class BucketComponent implements OnInit {
   upload() {
     const file = $('#fileInputId').prop('files')[0];
     console.log('image file', file);
-    this.auth.uploadPic(file);
+    this.s3Service.uploadPic(file);
   }
 
   viewPic() {
     console.log('name ', this.fileName);
-    this.auth.viewPic(this.fileName);
+    this.s3Service.viewPic(this.fileName);
   }
 
   listPublicPictures() {
-    this.auth.listPublicPictures();
+    this.s3Service.listPublicPictures();
   }
 
   listPrivatePictures() {
-    this.auth.listPrivatePictures();
+    this.s3Service.listPrivatePictures();
   }
 
 }

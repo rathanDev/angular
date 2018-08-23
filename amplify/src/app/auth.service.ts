@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import Amplify, {Auth, Storage} from 'aws-amplify';
+import Amplify, {Auth} from 'aws-amplify';
 import {environment} from '../environments/environment';
-import {log} from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -14,19 +13,15 @@ export class AuthService {
   public resendCodeEvent: BehaviorSubject<boolean>;
   public signInEvent: BehaviorSubject<boolean>;
 
-  public getImageEvent: BehaviorSubject<string>;
-
   constructor() {
     Amplify.configure({
-      Auth: environment.amplify.auth,
-      Storage: environment.amplify.storage
+      Auth: environment.amplify.auth
     });
 
     this.signUpEvent = new BehaviorSubject<boolean>(false);
     this.confirmSignUpEvent = new BehaviorSubject(false);
     this.resendCodeEvent = new BehaviorSubject(false);
     this.signInEvent = new BehaviorSubject<boolean>(false);
-    this.getImageEvent = new BehaviorSubject('');
   }
 
   public signUp(username, email, phone, password) {
@@ -145,74 +140,6 @@ export class AuthService {
         console.error('err', err);
         this.signInEvent.next(false);
       });
-  }
-
-  public uploadPic(pic) {
-    console.log('pic', pic);
-    Storage
-      .put(pic.name, pic, {
-        level: 'public',
-        contentType: 'image/png'
-      })
-      .then(result => {
-        console.log(result);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-
-  public viewPic(name) {
-    Storage.get(name)
-      .then(res => {
-        console.log('res ', res);
-        this.getImageEvent.next(res.toString());
-      })
-      .catch(err => {
-        console.error('err', err);
-      });
-  }
-
-  public listPublicPictures() {
-    log('list Pictures');
-
-    // Storage.configure({
-    //   bucket: 'arn:aws:s3:::test-aug-bucket',
-    //   region: 'us-east-1',
-    //   identityPoolId: 'us-east-1:7ea8f079-9171-4563-bac7-fb580bc96a50'
-    // });
-
-    /*
-    Storage
-      .put('codePenXhr.png', 'Protected Content', {
-        level: 'protected',
-        contentType: 'text/plain'
-      })
-      .then(result => {
-        console.log(result);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    */
-
-    Storage
-      .get('codePenXhr.png')
-      .then(res => {
-        console.log('res', res);
-        this.getImageEvent.next(res.toString());
-      })
-      .catch(err => {
-        console.error('err', err);
-      });
-
-  }
-
-  public listPrivatePictures() {
-    log('list private pics');
-    Storage.put('app.module.ts', 'Hello')
-      .then(result => console.log(result))
-      .catch(err => console.error(err));
   }
 
 }
