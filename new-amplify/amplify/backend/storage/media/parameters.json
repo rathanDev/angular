@@ -1,0 +1,9 @@
+{
+    "bucketName": "media-bucket",
+    "authPolicyName": "s3_amplify_16df6427",
+    "unauthPolicyName": "s3_amplify_16df6427",
+    "authRoleName": "newamplify-20180824142923-authRole",
+    "unauthRoleName": "newamplify-20180824142923-unauthRole",
+    "authPermissions": "rw",
+    "unauthPermissions": ""
+}
