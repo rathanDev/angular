@@ -1,17 +1,17 @@
 <div>
-  Select image to upload:
+  Select file to upload:
   <input type="file" name="fileToUpload" id="fileInputId">
-  <button (click)="upload()">Upload Image</button>
+  <button (click)="upload()">Upload file</button>
 </div>
 <br>
 
 <div>
   <input type="text" [(ngModel)]="fileName">
-  <button (click)="viewPic()">View Pic</button>
+  <button (click)="view()">View File</button>
 </div>
 <br>
-Image: {{imageUrl}}
-<img src={{imageUrl}} alt="">
+Image: {{fileUrl}}
+<img src="{{fileUrl}}" alt="">
 <br>
 <br>
 
