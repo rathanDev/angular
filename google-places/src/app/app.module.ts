@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { GooglePlacesDirective } from './google-places.directive';
+import { GooglePlaceDirective } from './google-place.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GooglePlacesDirective
+    GooglePlaceDirective
   ],
   imports: [
     BrowserModule
