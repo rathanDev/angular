@@ -1,24 +1,16 @@
-reference:
-https://aws-amplify.github.io/amplify-js/media/quick_start?utm_source=web-apps&utm_campaign=build-pages
+ref:
 
+https://aws-amplify.github.io/amplify-js/media/angular_guide
 
-npm install --save aws-amplify
-npm install --save aws-amplify-angular
+https://github.com/aws-amplify/amplify-cli
 
-npm i -g awsmobile-cli
+# ------------------------------------------------------------
 
-awsmobile configure
-  - enter accessKeyId and secretAccessKey
+npm install -g @aws-amplify/cli
+  accessKey
+  secretAccessKey
   
-npm i -g yarn
+amplify configure
 
-awsmobile init
-  - enter project details
+amplify init
 
-
-
-# -------------------------------------------------------------------------------------------
-
-aws configure
-
-aws s3api list-buckets

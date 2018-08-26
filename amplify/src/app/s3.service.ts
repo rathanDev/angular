@@ -9,7 +9,7 @@ import {log} from 'util';
 })
 export class S3Service {
 
-  public getImageEvent: BehaviorSubject<string>;
+  public getFileEvent: BehaviorSubject<string>;
 
   constructor() {
     Amplify.configure({
@@ -17,13 +17,13 @@ export class S3Service {
       Storage: environment.amplify.storage
     });
 
-    this.getImageEvent = new BehaviorSubject('');
+    this.getFileEvent = new BehaviorSubject('');
   }
 
-  public uploadPicPublic(pic) {
-    console.log('pic', pic);
+  public uploadPublic(file) {
+    console.log('file ', file);
     Storage
-      .put(pic.name, pic, {
+      .put(file.name, file, {
         level: 'public',
         contentType: 'image'
       })
@@ -36,11 +36,11 @@ export class S3Service {
     /* contentType: 'image/png' */
   }
 
-  public viewPicPublic(name) {
+  public viewPublic(name) {
     Storage.get(name)
       .then(res => {
         console.log('res ', res);
-        this.getImageEvent.next(res.toString());
+        this.getFileEvent.next(res.toString());
       })
       .catch(err => {
         console.error('err', err);
@@ -54,7 +54,7 @@ export class S3Service {
       .get('codePenXhr.png')
       .then(res => {
         console.log('res', res);
-        this.getImageEvent.next(res.toString());
+        this.getFileEvent.next(res.toString());
       })
       .catch(err => {
         console.error('err', err);

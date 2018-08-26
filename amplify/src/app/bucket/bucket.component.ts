@@ -11,14 +11,14 @@ declare var $: any;
 })
 export class BucketComponent implements OnInit {
 
-  imageUrl: string;
+  fileUrl: string;
   fileName: string;
 
   constructor(private s3Service: S3Service) {
-    this.s3Service.getImageEvent.subscribe(res => {
+    this.s3Service.getFileEvent.subscribe(res => {
         console.log('res ', res);
-        this.imageUrl = res;
-        log('this.imageUrl: ' + this.imageUrl);
+        this.fileUrl = res;
+        log('this.fileUrl: ' + this.fileUrl);
       },
       err => {
         console.error('err', err);
@@ -30,13 +30,13 @@ export class BucketComponent implements OnInit {
 
   upload() {
     const file = $('#fileInputId').prop('files')[0];
-    console.log('image file', file);
-    this.s3Service.uploadPicPublic(file);
+    console.log('file ', file);
+    this.s3Service.uploadPublic(file);
   }
 
-  viewPic() {
+  view() {
     console.log('name ', this.fileName);
-    this.s3Service.viewPicPublic(this.fileName);
+    this.s3Service.viewPublic(this.fileName);
   }
 
   listPublicPictures() {
