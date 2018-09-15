@@ -1,3 +1,5 @@
-<p>
-  create works!
-</p>
+<div class="left">
+  <input type="text" #name>
+  <input type="text" #url>
+  <button (click)="addTutorial(name.value, url.value)">Add a tutorial</button>
+</div>
