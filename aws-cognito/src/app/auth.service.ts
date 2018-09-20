@@ -10,19 +10,12 @@ import * as AWS from 'aws-sdk';
 // };
 
 // jana
-// const userPoolId = 'us-east-1_phO8KSDT1'; // userPoolAsDoc
-// const clientId = 'cct28vp4kojvuqt097ttfvrau'; // webApp
-// const identityPoolId = 'us-east-1:c0d62a45-1e31-41c6-b496-6d1b7bc9d491'; // niroIdentityPool
-// const region = 'us-east-1';
-// const bucketName = 'websitebucket2018';
-
-// trivyol
-const userPoolId = 'us-east-1_321WBScDf';
-const clientId = '212pn6eir7qdhm7ogqts0t4c7u';
-const identityPoolId = 'us-east-1:fe863e42-a4c8-424d-9a6a-41c18220c987';
+const userPoolId = 'us-east-1_gLvrEEv2z'; // sepPool
+const clientId = '5sd0nkopqokaln66d6s4kcq186'; // sepClient
+const identityPoolId = 'us-east-1:90d807d9-4b7a-45c6-bcf1-dc5f5c489c34'; // sepIdentityPool
 const region = 'us-east-1';
-const requestPhotoBucket = 'trivyol-media-sandbox'; // "trivyol-media-sandbox"
-const profilePhotoBucket = 'trivyol-profile-photos-sandbox';
+const bucketName = 'websitebucket2018';
+const profilePhotoBucket = 'websitebucket2018';
 
 const poolData = {
   UserPoolId: userPoolId, // Your user pool id here
@@ -109,8 +102,7 @@ export class AuthService {
         AWS.config.credentials = new AWS.CognitoIdentityCredentials({
           IdentityPoolId: identityPoolId, // your identity pool id here
           Logins: {
-            // Change the key below according to the specific region your user pool is in.
-            'cognito-idp.us-east-1.amazonaws.com/us-east-1_321WBScDf': result.getIdToken().getJwtToken()
+            'cognito-idp.us-east-1.amazonaws.com/us-east-1_gLvrEEv2z': result.getIdToken().getJwtToken()
           }
         });
 
