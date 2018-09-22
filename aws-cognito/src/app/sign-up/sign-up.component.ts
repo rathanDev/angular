@@ -25,6 +25,17 @@ export class SignUpComponent {
     return JSON.stringify(this.registration);
   }
 
+  callAuthLambda() {
+    this.lambdaService.callAuthSepLambda().subscribe(
+      res => {
+        console.log('res', res);
+      },
+      err => {
+        console.error('err', err);
+      }
+    )
+  }
+
   callLambda() {
     this.lambdaService.callSepLambda().subscribe(
       res => {
