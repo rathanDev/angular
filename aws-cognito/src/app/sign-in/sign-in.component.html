@@ -15,7 +15,12 @@
     <button type="submit" class="btn btn-success">Sign In</button>
   </form>
 
+  <br>
+  Google sign in
+  <div class="g-signin2" id="googleBtn">Sign In</div>
+  <button (click)="googleSignOut()">Sign out</button>
 
+  <br>
   <br>
   <div (click)="callAuthLambda()">Call Auth Lambda</div>
   <br>
