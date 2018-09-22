@@ -16,7 +16,7 @@ export class LambdaService {
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post('https://dlbegkmn8g.execute-api.us-east-1.amazonaws.com/dev/sep-resource', this.data, httpOptions);
+    return this.http.get('https://dlbegkmn8g.execute-api.us-east-1.amazonaws.com/dev/sep-resource', httpOptions);
   }
 
 }
