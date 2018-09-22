@@ -96,6 +96,7 @@ export class AuthService {
       onSuccess: function (result) {
         console.log('authenticateUser onSuccess result', result);
 
+        /*
         // POTENTIAL: Region needs to be set if not already set previously elsewhere.
         AWS.config.region = region;
 
@@ -117,6 +118,7 @@ export class AuthService {
           }
           console.log('data', data);
         });
+        */
 
       },
 

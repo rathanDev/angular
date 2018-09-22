@@ -13,8 +13,7 @@ export class SignUpComponent {
   title = 'SignUp';
   registration = new User();
 
-  constructor(private authService: AuthService,
-              private lambdaService: LambdaService) {
+  constructor(private authService: AuthService) {
   }
 
   onSubmit() {
@@ -23,28 +22,6 @@ export class SignUpComponent {
 
   get currentRegistration() {
     return JSON.stringify(this.registration);
-  }
-
-  callAuthLambda() {
-    this.lambdaService.callAuthSepLambda().subscribe(
-      res => {
-        console.log('res', res);
-      },
-      err => {
-        console.error('err', err);
-      }
-    )
-  }
-
-  callLambda() {
-    this.lambdaService.callSepLambda().subscribe(
-      res => {
-          console.log('res', res);
-      },
-      err => {
-        console.error('err', err);
-      }
-    )
   }
 
 }
