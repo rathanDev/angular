@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {Component} from '@angular/core';
 import {User} from './user.model';
 import {AuthService} from '../auth.service';
+import {LambdaService} from '../lambda.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,7 +13,8 @@ export class SignUpComponent {
   title = 'SignUp';
   registration = new User();
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private lambdaService: LambdaService) {
   }
 
   onSubmit() {
@@ -22,6 +23,17 @@ export class SignUpComponent {
 
   get currentRegistration() {
     return JSON.stringify(this.registration);
+  }
+
+  callLambda() {
+    this.lambdaService.callSepLambda().subscribe(
+      res => {
+          console.log('res', res);
+      },
+      err => {
+        console.error('err', err);
+      }
+    )
   }
 
 }
