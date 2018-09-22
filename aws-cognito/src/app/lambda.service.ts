@@ -9,11 +9,12 @@ export class LambdaService {
   constructor(private http: HttpClient) {
   }
 
-  callAuthSepLambda() {
-    console.log('callAuthSepLambda');
+  callAuthSepLambda(token: string) {
+    console.log('auth', token);
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': token
       })
     };
     return this.http.get('https://wwjaipowli.execute-api.us-east-1.amazonaws.com/dev/sep-auth-resources', httpOptions);

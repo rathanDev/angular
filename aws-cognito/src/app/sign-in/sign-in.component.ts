@@ -12,17 +12,24 @@ export class SignInComponent implements OnInit {
 
   title = 'Sign In';
   user = new User();
+  token: string;
 
   constructor(private authService: AuthService,
               private lambdaService: LambdaService) {
   }
 
   ngOnInit() {
+    this.authService.signInEvent.subscribe(
+      res => {
+        console.log('res', res);
+        this.token = res;
+      }
+    )
   }
 
 
   callAuthLambda() {
-    this.lambdaService.callAuthSepLambda().subscribe(
+    this.lambdaService.callAuthSepLambda(this.token).subscribe(
       res => {
         console.log('res', res);
       },

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {User} from './sign-up/user.model';
 import {AuthenticationDetails, CognitoUser, CognitoUserAttribute, CognitoUserPool, CognitoUserSession} from 'amazon-cognito-identity-js';
 import * as AWS from 'aws-sdk';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 // userPool
 // const poolData = {
@@ -25,6 +26,8 @@ const userPool = new CognitoUserPool(poolData);
 
 @Injectable()
 export class AuthService {
+
+  signInEvent: BehaviorSubject<string> = new BehaviorSubject('');
 
   constructor() {
   }
@@ -80,6 +83,9 @@ export class AuthService {
   signIn(user: User) {
     console.log('authService signIn ', user);
 
+    user.username = 'username';
+    user.password = 'password';
+
     const authenticationData = {
       Username: user.username,
       Password: user.password,
@@ -92,9 +98,12 @@ export class AuthService {
     const cognitoUser = new CognitoUser(userData);
     console.log('cognitoUser', cognitoUser);
 
+    const thisInstance = this;
+
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: function (result) {
-        console.log('authenticateUser onSuccess result', result);
+        this.token = result['idToken']['jwtToken'];
+        thisInstance.signInEvent.next(this.token);
 
         /*
         // POTENTIAL: Region needs to be set if not already set previously elsewhere.
