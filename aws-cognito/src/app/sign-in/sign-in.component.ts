@@ -72,6 +72,11 @@ export class SignInComponent implements OnInit, AfterViewInit {
     });
   }
 
+
+  callGoogleLambda() {
+    this.lambdaService.callGoogleLambda(this.token);
+  }
+
   callAuthLambda() {
     this.lambdaService.callAuthSepLambda(this.token).subscribe(
       res => {
