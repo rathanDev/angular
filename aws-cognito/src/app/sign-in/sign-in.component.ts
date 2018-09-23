@@ -96,6 +96,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
 
   onSignIn() {
+    this.user.username = 'jana';
+    this.user.password = 'password';
     console.log('onSignIn', this.user);
     this.authService.signIn(this.user);
   }
