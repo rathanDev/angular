@@ -8,6 +8,11 @@
     </div>
 
     <div class="form-group">
+      <label for="username">Email</label>
+      <input type="text" class="form-control" id="email" name="username" required [(ngModel)]="registration.email">
+    </div>
+
+    <div class="form-group">
       <label for="password">Password</label>
       <input type="text" class="form-control" id="password" name="password" required [(ngModel)]="registration.password">
     </div>
