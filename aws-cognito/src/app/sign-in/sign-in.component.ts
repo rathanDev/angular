@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth.service';
 import {User} from '../sign-up/user.model';
-import {LambdaService} from '../lambda.service';
+import {ApiService} from '../api.service';
 
 declare var gapi: any;
 
@@ -17,7 +17,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
   token: string;
 
   constructor(private authService: AuthService,
-              private lambdaService: LambdaService) {
+              private apiService: ApiService) {
   }
 
   ngOnInit() {
@@ -72,13 +72,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
     });
   }
 
-
-  invokeLambda() {
-    this.lambdaService.invokeLambda(this.token);
-  }
-
   callAuthHttp() {
-    this.lambdaService.callAuthHttp(this.token).subscribe(
+    this.apiService.callAuthHttp(this.token).subscribe(
       res => {
         console.log('res', res);
       },
@@ -89,7 +84,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
   }
 
   callHttp() {
-    this.lambdaService.callHttp().subscribe(
+    this.apiService.callHttp().subscribe(
       res => {
         console.log('res', res);
       },

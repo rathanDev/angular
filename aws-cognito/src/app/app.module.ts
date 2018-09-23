@@ -13,6 +13,7 @@ import {S3Service} from './s3.service';
 import { SignInComponent } from './sign-in/sign-in.component';
 import {LambdaService} from './lambda.service';
 import {HttpClientModule} from '@angular/common/http';
+import {ApiService} from './api.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import {HttpClientModule} from '@angular/common/http';
     RoutingModule,
     HttpClientModule
   ],
-  providers: [AuthService, S3Service, LambdaService],
+  providers: [AuthService, S3Service, ApiService, LambdaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
