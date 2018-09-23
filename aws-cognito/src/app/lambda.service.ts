@@ -14,8 +14,30 @@ export class LambdaService {
   constructor(private http: HttpClient) {
   }
 
-  callGoogleLambda(token: string) {
-    console.log('callGoogleLambda', token);
+  callAuthHttp(token: string) {
+    console.log('auth', token);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': token
+      })
+    };
+    return this.http.get('https://wwjaipowli.execute-api.us-east-1.amazonaws.com/dev/sep-auth-resources', httpOptions);
+  }
+
+  callHttp() {
+    console.log('call');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.get('https://dlbegkmn8g.execute-api.us-east-1.amazonaws.com/dev/sep-resource', httpOptions);
+  }
+
+
+  invokeLambda(token: string) {
+    console.log('invokeLambda', token);
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
       IdentityPoolId: identityPoolId,
       Logins: {
@@ -41,26 +63,4 @@ export class LambdaService {
       }
     });
   }
-
-  callAuthSepLambda(token: string) {
-    console.log('auth', token);
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': token
-      })
-    };
-    return this.http.get('https://wwjaipowli.execute-api.us-east-1.amazonaws.com/dev/sep-auth-resources', httpOptions);
-  }
-
-  callSepLambda() {
-    console.log('call');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    return this.http.get('https://dlbegkmn8g.execute-api.us-east-1.amazonaws.com/dev/sep-resource', httpOptions);
-  }
-
 }

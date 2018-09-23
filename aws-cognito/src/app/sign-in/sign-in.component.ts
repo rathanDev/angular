@@ -38,7 +38,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
   public initGoogle() {
     gapi.load('auth2', () => {
       this.auth2 = gapi.auth2.init({
-        client_id: '599921436503-j8a6d0fffg21uik8mq8l9oumchojm7ds.apps.googleusercontent.com',
+        client_id: '1067376010740-pnm86cun36ncbt0qprouagd9f3r33jal.apps.googleusercontent.com',
         cookiepolicy: 'single_host_origin',
         scope: 'profile email'
       });
@@ -73,12 +73,12 @@ export class SignInComponent implements OnInit, AfterViewInit {
   }
 
 
-  callGoogleLambda() {
-    this.lambdaService.callGoogleLambda(this.token);
+  invokeLambda() {
+    this.lambdaService.invokeLambda(this.token);
   }
 
-  callAuthLambda() {
-    this.lambdaService.callAuthSepLambda(this.token).subscribe(
+  callAuthHttp() {
+    this.lambdaService.callAuthHttp(this.token).subscribe(
       res => {
         console.log('res', res);
       },
@@ -88,8 +88,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
     )
   }
 
-  callLambda() {
-    this.lambdaService.callSepLambda().subscribe(
+  callHttp() {
+    this.lambdaService.callHttp().subscribe(
       res => {
         console.log('res', res);
       },
