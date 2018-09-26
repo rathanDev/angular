@@ -10,15 +10,17 @@ export class HomeComponent implements OnInit {
 
   homesign: boolean;
 
-  constructor(private messenge: MessengerService) {
+  constructor(private messenger: MessengerService) {
   }
 
   ngOnInit() {
+    this.homesign = false;
+    this.messenger.toggle(this.homesign);
   }
 
   toggle() {
     this.homesign = !this.homesign;
-    this.messenge.toggle(this.homesign);
+    this.messenger.toggle(this.homesign);
     console.log('@home sign', this.homesign);
   }
 
