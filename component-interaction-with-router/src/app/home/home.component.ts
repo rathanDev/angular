@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
 
   toggle() {
     this.homesign = !this.homesign;
+    this.messenge.toggle(this.homesign);
+    console.log('@home sign', this.homesign);
   }
 
 }
