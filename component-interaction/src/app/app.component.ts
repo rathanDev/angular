@@ -14,6 +14,7 @@ export class AppComponent {
 
   toggleHome() {
     this.apphome = !this.apphome;
+    console.log('@toggleHome ', this.apphome);
   }
 
 }
