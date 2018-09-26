@@ -1,6 +1,7 @@
 export class User {
 
   private _username: string;
+  private _email: string;
   private _password: string;
   private _verificationCode: string;
 
@@ -10,6 +11,14 @@ export class User {
 
   public set username(value: string) {
     this._username = value;
+  }
+
+  get email(): string {
+    return this._email;
+  }
+
+  set email(value: string) {
+    this._email = value;
   }
 
   public get password(): string {

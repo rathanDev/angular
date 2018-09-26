@@ -1,76 +1,47 @@
 import {Injectable} from '@angular/core';
 import {User} from './sign-up/user.model';
-import {AuthenticationDetails, CognitoUser, CognitoUserAttribute, CognitoUserPool, CognitoUserSession} from 'amazon-cognito-identity-js';
-import * as AWS from 'aws-sdk';
+import {AuthenticationDetails, CognitoUser, CognitoUserAttribute, CognitoUserPool} from 'amazon-cognito-identity-js';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
-// userPool
-// const poolData = {
-//   UserPoolId: 'us-east-1_nT09q7Hv8',
-//   ClientId: '3bsakfglbeg3qgid8pjj1pjfth' // angularWebApp
-// };
-
-// jana
-// const userPoolId = 'us-east-1_phO8KSDT1'; // userPoolAsDoc
-// const clientId = 'cct28vp4kojvuqt097ttfvrau'; // webApp
-// const identityPoolId = 'us-east-1:c0d62a45-1e31-41c6-b496-6d1b7bc9d491'; // niroIdentityPool
-// const region = 'us-east-1';
-// const bucketName = 'websitebucket2018';
-
-// trivyol
-const userPoolId = 'us-east-1_321WBScDf';
-const clientId = '212pn6eir7qdhm7ogqts0t4c7u';
-const identityPoolId = 'us-east-1:fe863e42-a4c8-424d-9a6a-41c18220c987';
-const region = 'us-east-1';
-const requestPhotoBucket = 'trivyol-media-sandbox'; // "trivyol-media-sandbox"
-const profilePhotoBucket = 'trivyol-profile-photos-sandbox';
-
-const poolData = {
-  UserPoolId: userPoolId, // Your user pool id here
-  ClientId: clientId // Your client id here
-};
-const userPool = new CognitoUserPool(poolData);
+const userPool = new CognitoUserPool({
+  UserPoolId: 'us-east-1_p6lk6TjAP',
+  ClientId: '58t0gnung96junjmg5kvfamhch'
+});
 
 @Injectable()
 export class AuthService {
+
+  signInEvent: BehaviorSubject<string> = new BehaviorSubject('');
 
   constructor() {
   }
 
   signUp(registration: User) {
     console.log('In authService username', registration.username, ' password', registration.password);
-
     const attributeList = [];
-
     const dataEmail = {
       Name: 'email',
-      Value: 'learner.4vr@gmail.com'
+      Value: registration.email
     };
-
     const attributeEmail = new CognitoUserAttribute(dataEmail);
-
     attributeList.push(attributeEmail);
-
-    userPool.signUp('username', 'password', attributeList, null, function (err, result) {
+    userPool.signUp(registration.username, registration.password, attributeList, null, function (err, result) {
       if (err) {
         alert(err.message || JSON.stringify(err));
         return;
       }
-      console.log('result', result); // data {user: CognitoUser, userConfirmed: false, userSub: "24a35049-48c3-4f86-8804-0d7dec573598"}
+      console.log('result', result);
     });
-
-
   }
 
   confirm(registration: User) {
     console.log('confirm', registration);
-
     const userData = {
       Username: registration.username,
       Pool: userPool
     };
-
     const cognitoUser = new CognitoUser(userData);
-    cognitoUser.confirmRegistration('123456', true, function (err, result) {
+    cognitoUser.confirmRegistration(registration.verificationCode, true, function (err, result) {
       if (err) {
         alert(err.message || JSON.stringify(err));
         return;
@@ -85,8 +56,6 @@ export class AuthService {
   }
 
   signIn(user: User) {
-    console.log('authService signIn ', user);
-
     const authenticationData = {
       Username: user.username,
       Password: user.password,
@@ -99,33 +68,12 @@ export class AuthService {
     const cognitoUser = new CognitoUser(userData);
     console.log('cognitoUser', cognitoUser);
 
+    const thisInstance = this;
+
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: function (result) {
-        console.log('authenticateUser onSuccess result', result);
-
-        // POTENTIAL: Region needs to be set if not already set previously elsewhere.
-        AWS.config.region = region;
-
-        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-          IdentityPoolId: identityPoolId, // your identity pool id here
-          Logins: {
-            // Change the key below according to the specific region your user pool is in.
-            'cognito-idp.us-east-1.amazonaws.com/us-east-1_321WBScDf': result.getIdToken().getJwtToken()
-          }
-        });
-
-        console.log('AWS.config', AWS.config.credentials);
-
-        const s3 = new AWS.S3();
-
-        s3.listObjects({Bucket: profilePhotoBucket}, function (err, data) {
-          if (err) {
-            console.error('Err in listObjects', err);
-            return;
-          }
-          console.log('data', data);
-        });
-
+        this.token = result['idToken']['jwtToken'];
+        thisInstance.signInEvent.next(this.token);
       },
 
       onFailure: function (err) {

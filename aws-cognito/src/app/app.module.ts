@@ -11,6 +11,9 @@ import { ConfirmComponent } from './confirm/confirm.component';
 import { S3Component } from './s3/s3.component';
 import {S3Service} from './s3.service';
 import { SignInComponent } from './sign-in/sign-in.component';
+import {LambdaService} from './lambda.service';
+import {HttpClientModule} from '@angular/common/http';
+import {ApiService} from './api.service';
 
 
 @NgModule({
@@ -24,9 +27,10 @@ import { SignInComponent } from './sign-in/sign-in.component';
   imports: [
     BrowserModule,
     FormsModule,
-    RoutingModule
+    RoutingModule,
+    HttpClientModule
   ],
-  providers: [AuthService, S3Service],
+  providers: [AuthService, S3Service, ApiService, LambdaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

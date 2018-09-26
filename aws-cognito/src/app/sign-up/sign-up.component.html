@@ -8,13 +8,20 @@
     </div>
 
     <div class="form-group">
+      <label for="username">Email</label>
+      <input type="text" class="form-control" id="email" name="username" required [(ngModel)]="registration.email">
+    </div>
+
+    <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="registration.password">
+      <input type="text" class="form-control" id="password" name="password" required [(ngModel)]="registration.password">
     </div>
 
     <button type="submit" class="btn btn-success">Submit</button>
 
   </form>
+
+  <br>
 
   <div><h2>Registration:</h2>{{currentRegistration}}</div>
 

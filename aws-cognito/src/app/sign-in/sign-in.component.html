@@ -9,12 +9,29 @@
 
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="user.password">
+      <input type="text" class="form-control" id="password" name="password" required [(ngModel)]="user.password">
     </div>
 
     <button type="submit" class="btn btn-success">Sign In</button>
   </form>
-
   <button (click)="onSignOut()"  class="btn btn-success">Sign Out</button>
+
+  <hr>
+
+  <br>
+  Google sign in
+  <div class="g-signin2" id="googleBtn">Sign In</div>
+  <button (click)="googleSignOut()">Sign out</button>
+  <br>
+
+  <hr>
+
+  <br>
+  <div (click)="callAuthHttp()">Call Auth  http</div>
+  <br>
+  <div (click)="callHttp()">Call http</div>
+  <br>
+  <div (click)="invokeLambda()">Call Lambda</div>
+  <br>
 
 </div>
