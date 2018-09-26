@@ -9,4 +9,11 @@ export class AppComponent {
 
   na = 'component-interaction';
 
+  apphome: boolean;
+  news: boolean;
+
+  toggleHome() {
+    this.apphome = !this.apphome;
+  }
+
 }
