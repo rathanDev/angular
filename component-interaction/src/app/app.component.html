@@ -3,12 +3,12 @@
 <br>
 <hr>
 
-<app-child [name]="na"></app-child>
+<app-child (childhomeevent)="apphome"></app-child>
 
 <br>
 <hr>
 
-<div>App Component</div>
+<div>App Component: apphome: {{apphome}}</div>
 
 <button (click)="toggleHome()">Toggle Home</button>
 

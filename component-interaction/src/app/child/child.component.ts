@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, Output, OnInit, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -7,12 +7,19 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
-  @Input() name;
+  childhome: boolean;
+  @Output() public childhomeevent = new EventEmitter();
 
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  toggleHome() {
+    this.childhome = !this.childhome;
+    this.childhomeevent.emit(this.childhome);
+    console.log('@child ', this.childhome);
   }
 
 }
