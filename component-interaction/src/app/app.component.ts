@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {MessengerService} from './messenger.service';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,19 @@ export class AppComponent {
   apphome: boolean;
   news: boolean;
 
+  constructor(messenger: MessengerService) {
+    messenger.toggleSubject.subscribe(
+      res => {
+        console.log('@App subject', res);
+        this.apphome = res;
+        console.log('@App apphome', this.apphome);
+      }
+    );
+  }
+
   toggleHome() {
     this.apphome = !this.apphome;
-    console.log('@toggleHome ', this.apphome);
+    console.log('@App apphome ', this.apphome);
   }
 
 }
