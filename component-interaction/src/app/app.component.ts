@@ -3,15 +3,26 @@ import {MessengerService} from './messenger.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `
+    <app-navbar [navhome]="apphome"></app-navbar>
+
+    <br>
+    <hr>
+
+    <app-child></app-child>
+
+    <br>
+    <hr>
+
+    <div>App Component: apphome: {{apphome}}</div>
+
+    <button (click)="toggleHome()">Toggle Home</button>
+  `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
 
-  na = 'component-interaction';
-
   apphome: boolean;
-  news: boolean;
 
   constructor(messenger: MessengerService) {
     messenger.toggleSubject.subscribe(

@@ -1,4 +1,4 @@
-import {Component, Input, Output, OnInit, EventEmitter} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MessengerService} from '../messenger.service';
 
 @Component({
@@ -8,9 +8,6 @@ import {MessengerService} from '../messenger.service';
 })
 export class ChildComponent implements OnInit {
 
-  childhome: boolean;
-  @Output() public childhomeevent = new EventEmitter();
-
   constructor(private messenger: MessengerService) {
   }
 
@@ -18,9 +15,6 @@ export class ChildComponent implements OnInit {
   }
 
   toggleHome() {
-    // this.childhome = !this.childhome;
-    // this.childhomeevent.emit(this.childhome);
-    // console.log('@child ', this.childhome);
     this.messenger.toggle();
   }
 
