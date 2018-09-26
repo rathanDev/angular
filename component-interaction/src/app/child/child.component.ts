@@ -3,7 +3,13 @@ import {MessengerService} from '../messenger.service';
 
 @Component({
   selector: 'app-child',
-  templateUrl: './child.component.html',
+  template: `
+    <p>
+      childhome
+      <br>
+      <button (click)="toggleHome()">toggle home</button>
+    </p>
+  `,
   styleUrls: ['./child.component.css']
 })
 export class ChildComponent implements OnInit {
