@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MessengerService} from '../messenger.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  homesign: boolean;
+
+  constructor(private messenge: MessengerService) {
+  }
 
   ngOnInit() {
+  }
+
+  toggle() {
+    this.homesign = !this.homesign;
   }
 
 }

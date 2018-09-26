@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {MessengerService} from './messenger.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'component-interaction-with-router';
+
+  appsign: boolean;
+
+  constructor(messenger: MessengerService) {
+    messenger.toggleSubject.subscribe(
+      res => {
+        console.log('@App subject', res);
+        this.appsign = res;
+        console.log('@App apphome', this.appsign);
+      }
+    );
+  }
+
 }
