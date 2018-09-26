@@ -19,7 +19,7 @@ export class AppComponent {
         console.log('@App subject', res);
         this.appsign = res;
         console.log('@App apphome', this.appsign);
-        this.router.navigate(['/about']);
+        // this.router.navigate(['/about']);
       }
     );
   }
