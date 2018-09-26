@@ -10,6 +10,11 @@ li {
   float: left;
 }
 
+li.right {
+  float: right;
+  background-color: red;
+}
+
 li a {
   display: block;
   color: white;

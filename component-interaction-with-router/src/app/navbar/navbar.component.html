@@ -1,5 +1,6 @@
 <ul>
   <li><a routerLink="/home">Home</a></li>
   <li><a routerLink="/about">About</a></li>
-  <li><a href="#">signIn : {{navsign}}</a></li>
+  <li class="right"><a *ngIf="navsign">Kick</a></li>
+  <li class="right"><a *ngIf="!navsign">Punch</a></li>
 </ul>
