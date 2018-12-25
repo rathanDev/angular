@@ -1,5 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { QuoteComponent } from './quote.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {QuoteComponent} from './quote.component';
 import {QuoteService} from '../quote.service';
 
 describe('QuoteComponent', () => {
@@ -9,9 +9,8 @@ describe('QuoteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuoteComponent ]
-    })
-    .compileComponents();
+      declarations: [QuoteComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -29,5 +28,13 @@ describe('QuoteComponent', () => {
     fixture.detectChanges();
     expect(quoteService.getQuotes()).toEqual(component.quotes);
   });
+
+  it('should create a new post', () => {
+    component.quoteText = 'I love this post';
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.innerHTML).toContain('');
+  });
+
 
 });
