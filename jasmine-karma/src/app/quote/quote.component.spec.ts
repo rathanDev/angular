@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { QuoteComponent } from './quote.component';
+import {QuoteService} from '../quote.service';
 
 describe('QuoteComponent', () => {
 
@@ -22,6 +22,12 @@ describe('QuoteComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should use the quotes from the service', () => {
+    const quoteService = fixture.debugElement.injector.get(QuoteService);
+    fixture.detectChanges();
+    expect(quoteService.getQuotes()).toEqual(component.quotes);
   });
 
 });
