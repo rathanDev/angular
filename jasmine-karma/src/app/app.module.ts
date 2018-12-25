@@ -6,12 +6,14 @@ import {AppComponent} from './app.component';
 import {ContactComponent} from './contact/contact.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {UserComponent} from './user/user.component';
+import {QuoteComponent} from './quote/quote.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactComponent,
-    UserComponent
+    UserComponent,
+    QuoteComponent
   ],
   imports: [
     BrowserModule,
