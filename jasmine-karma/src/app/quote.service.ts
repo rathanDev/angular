@@ -12,7 +12,7 @@ export class QuoteService {
   constructor() {
   }
 
-  addNewQuote(quote: string) {
+  addQuote(quote: string) {
     const date = new Date();
     const dayOfWeek = this.daysOfTheWeeks[date.getDate()];
     const day = date.getDay();
