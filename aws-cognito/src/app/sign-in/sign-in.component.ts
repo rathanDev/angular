@@ -38,9 +38,9 @@ export class SignInComponent implements OnInit, AfterViewInit {
   public initGoogle() {
     gapi.load('auth2', () => {
       this.auth2 = gapi.auth2.init({
-        client_id: '1067376010740-pnm86cun36ncbt0qprouagd9f3r33jal.apps.googleusercontent.com',
+        client_id: '521596671446-aq6b3d5t23f6j7kr64pke03i6f2scgn5.apps.googleusercontent.com',
         cookiepolicy: 'single_host_origin',
-        scope: 'profile email'
+        scope: 'profile email openid'
       });
       this.attachSignin(document.getElementById('googleBtn'));
     });
@@ -50,6 +50,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
     this.auth2.attachClickHandler(element, {},
       (googleUser) => {
         let profile = googleUser.getBasicProfile();
+        let authResponse = googleUser.getAuthResponse();
+        console.log('response', authResponse);
         let idToken = googleUser.getAuthResponse().id_token;
         console.log('Token || ' + idToken);
         console.log('ID: ' + profile.getId());

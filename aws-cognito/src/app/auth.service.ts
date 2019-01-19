@@ -4,8 +4,8 @@ import {AuthenticationDetails, CognitoUser, CognitoUserAttribute, CognitoUserPoo
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 const userPool = new CognitoUserPool({
-  UserPoolId: 'us-east-1_p6lk6TjAP',
-  ClientId: '58t0gnung96junjmg5kvfamhch'
+  UserPoolId: 'us-east-1_p6lk6TjAP', // sep23
+  ClientId: '58t0gnung96junjmg5kvfamhch' //sep23AppClientId
 });
 
 @Injectable()
