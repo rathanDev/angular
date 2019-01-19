@@ -5,15 +5,20 @@ import {Injectable} from '@angular/core';
 })
 export class AuthService {
 
-  //jwtHelper: JWT
   constructor() {
   }
 
-  public isAuthenticated(): boolean {
-    // const token = localStorage.getItem('token');
-    // return this.jwtHelper.isTokenExpired(token);
-    return true;
+  public isAuthenticated() {
+    const token = localStorage.getItem('token');
+    return !!token;
   }
 
+  public login() {
+    localStorage.setItem('token', 'aToken');
+  }
+
+  public logout() {
+    localStorage.removeItem('token');
+  }
 
 }
