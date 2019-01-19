@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
-import {JwtHelperService} from '@auth0/angular-jwt';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(public jwtHelper: JwtHelperService) { }
+  //jwtHelper: JWT
+  constructor() {
+  }
 
   public isAuthenticated(): boolean {
     // const token = localStorage.getItem('token');
