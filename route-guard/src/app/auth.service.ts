@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,12 @@ export class AuthService {
     const token = localStorage.getItem('token');
     console.log('token', token);
     console.log('isAuth?', !!token);
-    return !!token;
+    // return !!token;
+
+    if (!token) {
+      return of(false);
+    }
+    return of(true);
   }
 
   public login() {
