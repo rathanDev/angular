@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {SwaggerService} from './swagger.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,10 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'modal';
+
+  constructor(private swaggerService: SwaggerService) {
+
+  }
 
   openModal() {
     const modal = document.getElementById('myModal');
@@ -25,5 +30,10 @@ export class AppComponent {
     const modal = document.getElementById('myModal');
     modal.style.display = 'none';
   }
+
+  getSwagger() {
+    this.swaggerService.getSwagger();
+  }
+
 
 }
