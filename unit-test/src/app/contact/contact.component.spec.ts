@@ -37,4 +37,15 @@ describe('ContactComponent', () => {
     expect(component.submitted).toBeTruthy();
   }));
 
+  it(`form should be invalid`, async(() => {
+    component.form.controls['username'].setValue('');
+    component.form.controls['password'].setValue('pass');
+    expect(component.form.valid).toBeFalsy();
+  }));
+  it(`form should be valid`, async(() => {
+    component.form.controls['username'].setValue('user');
+    component.form.controls['password'].setValue('pass');
+    expect(component.form.valid).toBeTruthy();
+  }));
+
 });
