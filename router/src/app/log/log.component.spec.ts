@@ -1,22 +1,23 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, TestBed} from '@angular/core/testing';
 
-import { LogComponent } from './log.component';
+import {LogComponent} from './log.component';
+import {LogService} from '../log.service';
 
 describe('LogComponent', () => {
+
   let component: LogComponent;
-  let fixture: ComponentFixture<LogComponent>;
+  let logService: LogService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LogComponent ]
+      declarations: [LogComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LogComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    logService = new LogService();
+    component = new LogComponent(logService);
   });
 
   it('should create', () => {

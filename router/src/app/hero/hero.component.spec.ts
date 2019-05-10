@@ -1,10 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeroComponent } from './hero.component';
+import {LogService} from '../log.service';
 
 describe('HeroComponent', () => {
+
   let component: HeroComponent;
-  let fixture: ComponentFixture<HeroComponent>;
+  let logService: LogService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -14,12 +16,12 @@ describe('HeroComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeroComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    logService = new LogService();
+    component = new HeroComponent(logService);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
