@@ -2,10 +2,22 @@
   <a [routerLink]="'/home'">Home</a>
 </div>
 
-<div id="mapDiv">
+<div id="mapDiv1" *ngIf="!locChanged">
 
-  <agm-map [latitude]="lat" [longitude]="lng">
+  <agm-map [latitude]="mapCenterLat" [longitude]="mapCenterLng">
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
   </agm-map>
 
 </div>
+
+<br>
+
+<div id="mapDiv2">
+
+  <agm-map [latitude]="mapCenterLat" [longitude]="mapCenterLng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+
+</div>
+
+<button (click)="changeLoc()">Change Locations</button>
