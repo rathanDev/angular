@@ -2,6 +2,28 @@
   <a [routerLink]="'/home'">Home</a>
 </div>
 
+<br>
+
+<input [(ngModel)]="searchText">
+<br>
+Searching ----
+<br>
+<div>
+  {{searchText}}
+</div>
+
+<div class="input-container">
+
+  <input appGooglePlaces
+         type="text"
+         class="google-places-input"
+         (onSelect)="setAddress($event)"
+         placeholder="Type to search">
+
+</div>
+
+<br>
+
 <div id="mapDiv1" *ngIf="!locChanged">
 
   <agm-map [latitude]="mapCenterLat" [longitude]="mapCenterLng">
