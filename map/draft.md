@@ -7,8 +7,14 @@ from here:
 https://console.cloud.google.com/apis/credentials?project=janaweb-1537711312921
 
 Ref:
-Google Places auto complete
+
+> Google Places 
+https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete
+
+> Google Places auto complete
 https://medium.com/@abhishek_menon/custom-directives-in-angular-6-building-a-google-places-autocomplete-4b418ee674ce
+
+
 
 
 ng g d google-places
