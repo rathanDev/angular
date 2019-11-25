@@ -19,10 +19,12 @@ ng g appShell --clientProject=simple-app-shell --universalProject=simple-app-she
 > updates angular.json 
 
 ng run simple-app-shell:app-shell
+for prod, 
+ng run simple-app-shell:app-shell:production
 
-for prod, ng run my-app:app-shell:production
+open dist/simple-app-shell/index.html with Chrome
 
-
+Run light house audit
 
 
 
